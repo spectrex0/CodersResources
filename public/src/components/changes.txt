@@ -1,0 +1,20 @@
+**************************************************
+*                CHANGELOG                      *
+**************************************************
+
+Date: 4/17/2025
+Author: Spectre
+
+Changes made to the webpage:
+--------------------------------------------------
+1. Updated the homepage layout for better UX.
+2. Fixed navigation bar responsiveness on mobile.
+3. Added a new "FeedBacks" section.
+4. Improved loading speed by optimizing images.
+5. Fixed broken links in cheatsheets.
+6. Updated color scheme for better accessibility.
+7. Added animations to cards for better interactivity.
+
+**************************************************
+*                END OF LOG                     *
+**************************************************

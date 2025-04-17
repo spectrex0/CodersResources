@@ -1,0 +1,114 @@
+{
+    "go": {
+        "name": "go",
+        "type": "icon",
+        "path": "https://www.svgrepo.com/show/412222/go.svg",
+        "size": "15px",
+        "color": "#FFFFFF",
+        "description": "Go btn"
+    },
+    "code": {
+        "name": "code",
+        "type": "icon",
+        "path": "https://www.svgrepo.com/show/533324/code.svg",
+        "size": "14px",
+        "color": "white",
+        "description": "Code btn"
+    },
+    "python": {
+        "name": "python",
+        "type": "icon",
+        "path": "https://www.svgrepo.com/show/452091/python.svg",
+        "size": "16px",
+        "color": "#306998",
+        "description": "Python btn"
+    },
+    "javascript": {
+        "name": "javascript",
+        "type": "icon",
+        "path": "https://www.svgrepo.com/show/349419/javascript.svg",
+        "size": "16px",
+        "color": "#F7DF1E",
+        "description": "JavaScript btn"
+    },
+    "java": {
+        "name": "java",
+        "type": "icon",
+        "path": "https://www.svgrepo.com/show/452234/java.svg",
+        "size": "16px",
+        "color": "#5382A1",
+        "description": "Java btn"
+    },
+    "csharp": {
+        "name": "csharp",
+        "type": "icon",
+        "path": "https://www.svgrepo.com/show/452210/c-sharp.svg",
+        "size": "16px",
+        "color": "#9B4F96",
+        "description": "C# btn"
+    },
+    "php": {
+        "name": "php",
+        "type": "icon",
+        "path": "https://www.svgrepo.com/show/452078/php.svg",
+        "size": "16px",
+        "color": "#777BB4",
+        "description": "PHP btn"
+    },
+    "ruby": {
+        "name": "ruby",
+        "type": "icon",
+        "path": "https://www.svgrepo.com/show/452092/ruby.svg",
+        "size": "16px",
+        "color": "#CC342D",
+        "description": "Ruby btn"
+    },
+    "react": {
+        "name": "react",
+        "type": "framework",
+        "path": "https://www.svgrepo.com/show/354259/react.svg",
+        "size": "16px",
+        "color": "#61DAFB",
+        "description": "React framework"
+    },
+    "angular": {
+        "name": "angular",
+        "type": "framework",
+        "path": "https://www.svgrepo.com/show/303662/angular-icon-logo.svg",
+        "size": "16px",
+        "color": "#DD0031",
+        "description": "Angular framework"
+    },
+    "vue": {
+        "name": "vue",
+        "type": "framework",
+        "path": "https://www.svgrepo.com/show/493625/vue-vuejs-javascript-js-framework.svg",
+        "size": "16px",
+        "color": "#42B883",
+        "description": "Vue.js framework"
+    },
+    "django": {
+        "name": "django",
+        "type": "framework",
+        "path": "https://www.svgrepo.com/show/353657/django-icon.svg",
+        "size": "16px",
+        "color": "#092E20",
+        "description": "Django framework"
+    },
+    "laravel": {
+        "name": "laravel",
+        "type": "framework",
+        "path": "https://www.svgrepo.com/show/353985/laravel.svg",
+        "size": "16px",
+        "color": "#FF2D20",
+        "description": "Laravel framework"
+    },
+    "rails": {
+        "name": "rails",
+        "type": "framework",
+        "path": "https://www.svgrepo.com/show/353951/rails.svg",
+        "size": "16px",
+        "color": "#CC0000",
+        "description": "Ruby on Rails framework"
+    }
+}

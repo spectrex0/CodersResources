@@ -1,0 +1,52 @@
+[
+    {
+        "language": "Python",
+        "description": "Python Cheatsheet",
+        "links": [
+            "https://www.pythoncheatsheet.org/"
+        ]
+    },
+    {
+        "language": "JavaScript",
+        "description": "JavaScript Cheatsheets",
+        "links": [
+            "https://www.cheatography.com/davechild/cheat-sheets/javascript/",
+            "https://www.freecodecamp.org/news/javascript-cheat-sheet/",
+            "https://www.javascriptcheatsheet.org/"
+        ]
+    },
+    {
+        "language": "Angular",
+        "description": "Angular Cheatsheet",
+        "links": [
+            "https://angular.io/guide/cheatsheet"
+        ]
+    },
+    {
+        "language": "Java",
+        "description": "Java Cheatsheets",
+        "links": [
+            "https://www.cheatography.com/davechild/cheat-sheets/java/",
+            "https://www.freecodecamp.org/news/java-cheat-sheet/",
+            "https://www.javatpoint.com/java-cheat-sheet"
+        ]
+    },
+    {
+        "language": "C#",
+        "description": "C# Cheatsheets",
+        "links": [
+            "https://www.cheatography.com/davechild/cheat-sheets/c-sharp/",
+            "https://www.freecodecamp.org/news/c-sharp-cheat-sheet/",
+            "https://www.c-sharpcorner.com/article/c-sharp-cheat-sheet/"
+        ]
+    },
+    {
+        "language": "PHP",
+        "description": "PHP Cheatsheets",
+        "links": [
+            "https://www.cheatography.com/davechild/cheat-sheets/php/",
+            "https://www.freecodecamp.org/news/php-cheat-sheet/",
+            "https://www.codewithharry.com/blogpost/php-cheatsheet"
+        ]
+    }
+]
