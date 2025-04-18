@@ -3,7 +3,9 @@
         "language": "Python",
         "description": "Python Cheatsheet",
         "links": [
-            "https://www.pythoncheatsheet.org/"
+            "https://www.pythoncheatsheet.org/",
+            "https://cheatography.com/davechild/cheat-sheets/python/",
+            "https://quickref.me/python.html"
         ]
     },
     {
@@ -12,14 +14,34 @@
         "links": [
             "https://www.cheatography.com/davechild/cheat-sheets/javascript/",
             "https://www.freecodecamp.org/news/javascript-cheat-sheet/",
-            "https://www.javascriptcheatsheet.org/"
+            "https://www.javascriptcheatsheet.org/",
+            "https://quickref.me/javascript.html"
+        ]
+    },
+    {
+        "language": "HTML",
+        "description": "HTML Cheatsheets",
+        "links": [
+            "https://quickref.me/html.html",
+            "https://cheatography.com/davechild/cheat-sheets/html/",
+            "https://htmlcheatsheet.com/"
+        ]
+    },
+    {
+        "language": "CSS",
+        "description": "CSS Cheatsheets",
+        "links": [
+            "https://www.cheatography.com/davechild/cheat-sheets/css/faq/",
+            "https://www.freecodecamp.org/news/css-cheat-sheet/",
+            "https://quickref.me/css.html"
         ]
     },
     {
         "language": "Angular",
         "description": "Angular Cheatsheet",
         "links": [
-            "https://angular.io/guide/cheatsheet"
+            "https://angular.io/guide/cheatsheet",
+            "https://www.cheatography.com/davechild/cheat-sheets/angular/"
         ]
     },
     {
@@ -27,7 +49,8 @@
         "description": "Java Cheatsheets",
         "links": [
             "https://www.cheatography.com/davechild/cheat-sheets/java/",
-            "https://www.freecodecamp.org/news/java-cheat-sheet/",
+            "https://introcs.cs.princeton.edu/java/11cheatsheet/",
+            "https://quickref.me/java.html",
             "https://www.javatpoint.com/java-cheat-sheet"
         ]
     },
@@ -37,7 +60,20 @@
         "links": [
             "https://www.cheatography.com/davechild/cheat-sheets/c-sharp/",
             "https://www.freecodecamp.org/news/c-sharp-cheat-sheet/",
-            "https://www.c-sharpcorner.com/article/c-sharp-cheat-sheet/"
+            "https://www.c-sharpcorner.com/article/c-sharp-cheat-sheet/",
+            "https://quickref.me/csharp.html"
+        ]
+    },
+    {
+        "language": "C++",
+        "description": "C++ Cheatsheets",
+        "links": [
+            "https://www.codewithharry.com/blogpost/cpp-cheatsheet",
+            "https://www.cplusplus.com/doc/tutorial/",
+            "https://www.learncpp.com/",
+            "https://en.cppreference.com/w/",
+            "https://quickref.me/cpp.html",
+            "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/"
         ]
     },
     {
@@ -46,7 +82,107 @@
         "links": [
             "https://www.cheatography.com/davechild/cheat-sheets/php/",
             "https://www.freecodecamp.org/news/php-cheat-sheet/",
-            "https://www.codewithharry.com/blogpost/php-cheatsheet"
+            "https://www.codewithharry.com/blogpost/php-cheatsheet",
+            "https://quickref.me/php.html"
+        ]
+    },
+    {
+        "language": "SQL",
+        "description": "SQL Cheatsheets",
+        "links": [
+            "https://quickref.me/sql.html",
+            "https://www.cheatography.com/davechild/cheat-sheets/sql/",
+            "https://www.sqltutorial.org/sql-cheat-sheet/"
+        ]
+    },
+    {
+        "language": "Bash",
+        "description": "Bash Cheatsheets",
+        "links": [
+            "https://quickref.me/bash.html",
+            "https://www.cheatography.com/davechild/cheat-sheets/bash/",
+            "https://devhints.io/bash"
+        ]
+    },
+    {
+        "language": "Git",
+        "description": "Git Cheatsheets",
+        "links": [
+            "https://quickref.me/git.html",
+            "https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet",
+            "https://education.github.com/git-cheat-sheet-education.pdf"
+        ]
+    },
+    {
+        "language": "Regex",
+        "description": "Regex Cheatsheets",
+        "links": [
+            "https://quickref.me/regex.html",
+            "https://www.cheatography.com/davechild/cheat-sheets/regular-expressions/",
+            "https://regex101.com/"
+        ]
+    },
+    {
+        "language": "Markdown",
+        "description": "Markdown Cheatsheets",
+        "links": [
+            "https://quickref.me/markdown.html",
+            "https://www.markdownguide.org/cheat-sheet/",
+            "https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet"
+        ]
+    },
+    {
+        "language": "Go",
+        "description": "Go (Golang) Cheatsheets",
+        "links": [
+            "https://devhints.io/go",
+            "https://www.cheatography.com/davechild/cheat-sheets/go/",
+            "https://gobyexample.com/"
+        ]
+    },
+    {
+        "language": "Rust",
+        "description": "Rust Cheatsheets",
+        "links": [
+            "https://cheats.rs/",
+            "https://quickref.me/rust.html",
+            "https://github.com/ralfbiedert/cheats.rs"
+        ]
+    },
+    {
+        "language": "Kotlin",
+        "description": "Kotlin Cheatsheets",
+        "links": [
+            "https://kotlinlang.org/docs/cheatsheet.html",
+            "https://quickref.me/kotlin.html",
+            "https://www.cheatography.com/davechild/cheat-sheets/kotlin/"
+        ]
+    },
+    {
+        "language": "Swift",
+        "description": "Swift Cheatsheets",
+        "links": [
+            "https://www.raywenderlich.com/cheatsheets",
+            "https://quickref.me/swift.html",
+            "https://www.cheatography.com/davechild/cheat-sheets/swift/"
+        ]
+    },
+    {
+        "language": "Ruby",
+        "description": "Ruby Cheatsheets",
+        "links": [
+            "https://www.cheatography.com/davechild/cheat-sheets/ruby/",
+            "https://quickref.me/ruby.html",
+            "https://devhints.io/ruby"
+        ]
+    },
+    {
+        "language": "Perl",
+        "description": "Perl Cheatsheets",
+        "links": [
+            "https://quickref.me/perl.html",
+            "https://www.cheatography.com/davechild/cheat-sheets/perl/",
+            "https://perldoc.perl.org/perlcheat"
         ]
     }
 ]

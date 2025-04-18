@@ -1,0 +1,80 @@
+{
+    "pngImages": {
+        "name": "ClearPNG",
+        "description": "A collection of PNG images witch transparent backgrounds.",
+        "url": "https://www.cleanpng.com/",
+        "tags": ["png", "images", "transparent"]
+    },
+        "svgRepo": {
+        "name": "SVG Repo",
+        "description": "A repository for free SVG vectors and icons.",
+        "url": "https://svgrepo.com/",
+        "tags": ["svg", "vectors", "icons", "free"]
+    },
+        "discloudHosting": {
+        "name": "Discloud | Hospedagem para Bots e Sites",
+        "description": "Hosting service for bots and websites.",
+        "url": "https://discloud.com/",
+        "tags": ["hosting", "bots", "websites"]
+    },
+        "quickRefMe": {
+        "name": "QuickRef.ME - Quick Reference Cheat Sheet",
+        "description": "A quick reference cheat sheet.",
+        "url": "https://quickref.me/",
+        "tags": ["cheatsheet", "reference", "quick"]
+    },
+        "freeTierHosting": {
+        "name": "Free Tier Hosting - HiddenCloud",
+        "description": "Free hosting tier provided by HiddenCloud.",
+        "url": "https://hiddencloud.com/free-hosting",
+        "tags": ["hosting", "free", "hiddencloud"]
+    },
+        "leetcodeExplore": {
+        "name": "Explore - LeetCode",
+        "description": "LeetCode's problem-solving platform.",
+        "url": "https://leetcode.com/explore",
+        "tags": ["leetcode", "problem-solving", "coding"]
+    },
+        "freeCodeCamp": {
+        "name": "freeCodeCamp",
+        "description": "Learn to code for free.",
+        "url": "https://www.freecodecamp.org/",
+        "tags": ["learning", "coding", "free"]
+    },
+        "devDocs": {
+        "name": "DevDocs",
+        "description": "Documentation for developers.",
+        "url": "https://devdocs.io/",
+        "tags": ["documentation", "developers"]
+    },
+        "w3Schools": {
+        "name": "W3Schools",
+        "description": "Web development tutorials and references.",
+        "url": "https://www.w3schools.com/",
+        "tags": ["web", "development", "tutorials"]
+    },
+    "api ninja": {
+        "name": "API Ninja",
+        "description": "A collection of APIs for developers.",
+        "url": "https://api-ninjas.com/",
+        "tags": ["api", "developers"]
+    },
+    "dribbble": {
+        "name": "Dribbble",
+        "description": "A community for designers to showcase their work.",
+        "url": "https://dribbble.com/",
+        "tags": ["design", "community"]
+    },
+    "coddy": {
+        "name": "Coddy",
+        "description": "A platform for learning and practicing coding.",
+        "url": "https://coddy.tech/",
+        "tags": ["coding", "learning"]
+    },
+    "learn x in y miniutes": {
+        "name": "Learn X in Y Minutes",
+        "description": "A collection of programming languages and their syntax.",
+        "url": "https://learnxinyminutes.com/",
+        "tags": ["programming", "languages", "syntax"]
+    }
+}
