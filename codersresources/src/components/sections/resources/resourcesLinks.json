@@ -5,6 +5,12 @@
         "url": "https://www.cleanpng.com/",
         "tags": ["png", "images", "transparent"]
     },
+    "Roadmaps": {
+        "name": "Roadmaps",
+        "description": "A collection of roadmaps for developers.",
+        "url": "https://roadmap.sh/",
+        "tags": ["roadmaps", "developers"]
+    },
         "svgRepo": {
         "name": "SVG Repo",
         "description": "A repository for free SVG vectors and icons.",
@@ -76,5 +82,11 @@
         "description": "A collection of programming languages and their syntax.",
         "url": "https://learnxinyminutes.com/",
         "tags": ["programming", "languages", "syntax"]
+    },
+    "JSON to types": {
+        "name": "JSON to Types",
+        "description": "Convert JSON to types.",
+        "url": "https://app.quicktype.io/",
+        "tags": ["json", "conversion"]
     }
 }
