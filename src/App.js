@@ -17,8 +17,7 @@ function App() {
         <Button label="Get Started" onClick={() => setActiveSection('cheatsheets')} />
         <Cards />
         <Footer />
-      </div>
-    ),
+      </div>    ),
     Resources: (
     <Resources/>
     ),
