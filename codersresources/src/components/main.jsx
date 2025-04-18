@@ -91,7 +91,7 @@ const Main = () => {
     return (
         <div style={styles.container}>
             <h1 style={styles.title}>Welcome To Coders Resources</h1>
-            <p style={styles.paragraph}>Explore tutorials, documentation, and more.</p>
+            <p style={styles.paragraph}>Here u will have a colection of Resources for coders!.</p>
             <div style={{ position: 'relative', width: '100%', height: '100%' }}>
                 {icons.map((icon, index) => (
                     <img
