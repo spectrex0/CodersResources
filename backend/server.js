@@ -34,7 +34,7 @@ apiRouter.get('/feedback', (req, res) => {
 server.use('/api', apiRouter);
 
 server.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+    console.log(`Backend for coders resources running ✔`);
 });
 
 server.get('/changelogs', (req, res) => {
