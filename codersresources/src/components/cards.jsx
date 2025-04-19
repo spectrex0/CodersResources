@@ -60,7 +60,7 @@ const Main = () => {
 
     const handleCardClick = (card) => {
         if (card === 'changelogs') {
-            window.open(`${window.location.origin}/changes.txt`, '_blank'); // Open in a new tab
+            window.open(`http://localhost:3001/changelogs`, '_blank');
         }
     };
 

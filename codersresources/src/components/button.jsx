@@ -11,9 +11,9 @@ export function Button(props) {
 
 
 export const buttonStyle = {
-    backgroundColor: '#2C2E40', // Dark background color
+    backgroundColor: 'rgba(44, 48, 53, 0.09)', // Dark background color
     color: '#FFFFFF',          
-    border: '1px solid #3498DB',
+    border: '1px solid rgb(35, 38, 40)',
     padding: '10px 20px',
     borderRadius: '5px',
     cursor: 'pointer',

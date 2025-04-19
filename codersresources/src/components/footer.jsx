@@ -12,7 +12,7 @@ export default function footer() {
 
 const styles = {footer: mielda} = {
     footer: {
-        backgroundColor: 'rgba(0, 132, 255, 0.09)',
+        backgroundColor: 'rgba(44, 48, 53, 0.09)',
         color: '#fff',
         textAlign: 'center',
         padding: '0px 0',
