@@ -1,0 +1,10 @@
+.custom-button:hover {
+    background-color: #34495E;
+    border-color: #5DADE2;
+    gap: 10px;
+}
+
+.custom-button:active {
+    background-color: #292929;
+    border-color: #FFFFFF;
+}
