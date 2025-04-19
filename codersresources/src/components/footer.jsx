@@ -9,7 +9,7 @@ export default function footer() {
     ); 
 }
 
-const styles = {footer} = {
+const styles  = {
     footer: {
         backgroundColor: 'rgba(44, 48, 53, 0.09)',
         color: '#fff',
