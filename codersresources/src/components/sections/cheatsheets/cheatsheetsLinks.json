@@ -8,6 +8,15 @@
             "https://quickref.me/python.html"
         ]
     },
+    { 
+        "language": "Node.js",
+        "description": "Node.js Cheatsheets",
+        "links": [
+            "https://www.codecademy.com/learn/learn-node-js/modules/intro-to-node-js/cheatsheet",
+            "https://nodejs.dev/en/learn",
+            "https://quickref.me/nodejs.html"
+        ]
+    },
     {
         "language": "JavaScript",
         "description": "JavaScript Cheatsheets",
