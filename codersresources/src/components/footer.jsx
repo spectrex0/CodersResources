@@ -1,5 +1,4 @@
-import {CSSproparties} from 'react'
-let mielda = CSSproparties
+import React from 'react';
 export default function footer() {
     return (
         <div>
@@ -10,7 +9,7 @@ export default function footer() {
     ); 
 }
 
-const styles = {footer: mielda} = {
+const styles = {footer} = {
     footer: {
         backgroundColor: 'rgba(44, 48, 53, 0.09)',
         color: '#fff',
