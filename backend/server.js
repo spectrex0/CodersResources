@@ -13,7 +13,7 @@ const apiRouter = express.Router();
 
 apiRouter.get('/', (_, res) => {
     res.json({ message: 'Welcome to the backend for coders resources!' });
-    res.sendFile(Path.join(__dirname, './index.html'));
+    res.sendFile(Path.join(__dirname, '/index.html'));
 });
 
 const feedbacks = [];
