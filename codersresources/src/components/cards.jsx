@@ -60,7 +60,7 @@ const Main = () => {
 
     const handleCardClick = (card) => {
         if (card === 'changelogs') {
-            window.open(`http://localhost:3001/changelogs`, '_blank');
+            window.open(`https://cr-backend-lime.vercel.app/changelogs`, '_blank');
         }
     };
 
