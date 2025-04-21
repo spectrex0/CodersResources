@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import './App.css'; 
 import Main from './components/main';
-import Cards from './components/cards';
-import Button from './components/button';
+// import Cards from './components/cards';
+// import Button from './components/button';
 import Resources from './components/sections/resources/resources';
 import Footer from './components/footer'
 import FeedbacksPage from './components/sections/feedbacks/feedbacks';
@@ -14,8 +14,8 @@ function App() {
       <div>
         <div className="App"></div>
         <Main />
-        <Button label="Get Started" onClick={() => setActiveSection('cheatsheets')} />
-        <Cards />
+        {/* <Button label="Get Started" onClick={() => setActiveSection('cheatsheets')} /> */}
+        {/* <Cards /> */}
         <Footer />
       </div>    ),
     Resources: (
@@ -26,33 +26,30 @@ function App() {
   };
 
   const Menu = () => {
+    const menuItems = [
+      { label: 'Home', section: 'homeScreen' },
+      { label: 'Resources', section: 'Resources' },
+      { label: 'Cheatsheets', section: 'cheatsheets' },
+      { label: 'Feedbacks', section: 'FeedbacksPage' },
+    ];
+
     return (
       <nav style={styles.nav}>
         <ul style={{ listStyleType: 'none', margin: 0, padding: 0, display: 'flex', gap: '15px' }}>
-          <li 
-            style={{ color: 'white', cursor: 'pointer' }} 
-            onClick={() => setActiveSection('homeScreen')}
-          >
-            Home
-          </li>
-          <li 
-            style={{ color: 'white', cursor: 'pointer' }} 
-            onClick={() => setActiveSection('Resources')}
-          >
-            Resources
-          </li>
-          <li 
-            style={{ color: 'white', cursor: 'pointer' }} 
-            onClick={() => setActiveSection('cheatsheets')}
-          >
-            Cheatsheets
-          </li>
-          <li
-            style={{ color: 'white', cursor: 'pointer' }} 
-            onClick={() => setActiveSection('FeedbacksPage')}
-          >
-            Feedbacks
-          </li>
+          {menuItems.map((item) => (
+            <li
+              key={item.section}
+              style={{
+                color: activeSection === item.section ? '#58A6FF' : 'white',
+                cursor: 'pointer',
+                fontWeight: activeSection === item.section ? 'bold' : 'normal',
+                borderBottom: activeSection === item.section ? '2px solid #58A6FF' : 'none',
+              }}
+              onClick={() => setActiveSection(item.section)}
+            >
+              {item.label}
+            </li>
+          ))}
         </ul>
       </nav>
     );
@@ -70,10 +67,10 @@ function App() {
 const styles = {
   nav: {
         backgroundColor: 'rgba(44, 48, 53, 0.09)',
-        color: '#fff',
+        color: '#58A6FF',
         textAlign: 'center',
         padding: '0px 0',
-        position: 'fixed',
+        position: 'absolute',
         top: 0,
         height: '40px',
         alignItems: 'center',

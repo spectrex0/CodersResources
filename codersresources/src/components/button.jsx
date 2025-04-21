@@ -1,5 +1,3 @@
-// import icons from './assets/icons/icn.json';
-
 export function Button(props) {
     return (
         <button

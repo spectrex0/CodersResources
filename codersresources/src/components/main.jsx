@@ -1,104 +1,95 @@
 import React, { useState, useEffect } from 'react';
 
 // Import images
-let jsImge = require('./assets/icons/js.png');
-let nextImg = require('./assets/icons/next.png');
-let tsImg = require('./assets/icons/ts.png');
-let htmlImg = require('./assets/icons/html.png');
-let cssImg = require('./assets/icons/css.png');
+import jsImg from './assets/icons/js.png';
+import nextImg from './assets/icons/next.png';
+import tsImg from './assets/icons/ts.png';
+import htmlImg from './assets/icons/html.png';
+import cssImg from './assets/icons/css.png';
 
-const icons = [
-    { src: jsImge },
-    { src: nextImg },
-    { src: tsImg },
-    { src: htmlImg },
-    { src: cssImg }
-];
-
-const iconPositions = [
-    { top: '10%', left: '30%' },
-    { top: '20%', left: '70%' },
-    { top: '40%', left: '60%' },
-    { top: '80%', left: '49%' },
-    { top: '30px', left: '40%', transform: 'translate(-50%, -50%)' }
-];
+const icons = [jsImg, nextImg, tsImg, htmlImg, cssImg];
 
 const styles = {
     container: {
         textAlign: 'center',
-        marginTop: '50px',
-        padding: '0 20px',
+        padding: '0 0px',
+        backgroundColor: '#0D1117', // Dark background
+        height: '100vh', // Full viewport height
+        color: '#C9D1D9', // Light text
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center', // Center content vertically
+        alignItems: 'center',
+        overflow: 'hidden', // Prevent scrolling
     },
-    heading: {
-        fontSize: '2em',
-        color: '#333',
+    title: {
+        fontSize: '3em',
+        color: '#58A6FF', // Bright blue
+        textShadow: '0px 0px 10px #58A6FF',
+        marginBottom: '20px',
+        fontFamily: "'Poppins', sans-serif",
+        fontWeight: '600',
     },
     paragraph: {
         fontSize: '1.2em',
-        color: '#888888',
-        marginBottom: '20px',
-        fontFamily: 'Arial, sans-serif',
+        // color: '#8B949E', // Muted blue-gray
+        color:'white',
+        marginBottom: '20px', // Reduced margin
+        fontFamily: "'Roboto', sans-serif",
         fontWeight: '300',
-        lineHeight: '1.5',
+        lineHeight: '1.8',
+        maxWidth: '600px',
     },
-    title: {
-        fontSize: '2.5em',
-        color: '#FFFFFF',
+    iconContainer: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        gap: '15px', // Reduced gap
+        flexWrap: 'wrap',
     },
     icon: {
-        position: 'absolute',
         width: '3rem',
-        filter: 'opacity(0.2)',
-        animationName: 'upDown',
-        animationDuration: '2s',
-        animationIterationCount: 'infinite',
-        animationDirection: 'alternate',
-        animationTimingFunction: 'ease-in-out',
-        boxShadow: "#FFFFFF",
+        height: '3rem',
+        filter: 'opacity(0.4)', // Slightly increased opacity
+        
+        // backgroundColor: '#21262D', // Subtle background for icons
+        padding: '10px',
+        boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.2)', // Add shadow for better appearance
     },
     '@media (max-width: 768px)': {
+        title: {
+            fontSize: '2.5em',
+        },
+        icon: {
+            width: '2.5rem',
+            height: '2.5rem',
+        },
+    },
+    '@media (max-width: 480px)': {
         title: {
             fontSize: '2em',
         },
         icon: {
             width: '2rem',
-        },
-    },
-    '@media (max-width: 480px)': {
-        title: {
-            fontSize: '1.5em',
-        },
-        icon: {
-            width: '1.5rem',
+            height: '2rem',
         },
     },
 };
 
 const Main = () => {
-    const [responsiveIconPositions, setResponsiveIconPositions] = useState(iconPositions);
-
-    useEffect(() => {
-        const updatePositions = () => {
-            setResponsiveIconPositions(window.innerWidth <= 468 ? [{ display: "none" }] : iconPositions);
-        };
-
-        updatePositions();
-        window.addEventListener('resize', updatePositions);
-
-        return () => window.removeEventListener('resize', updatePositions);
-    }, []);
-
     return (
         <div style={styles.container}>
             <h1 style={styles.title}>Welcome To Coders Resources</h1>
-            <p style={styles.paragraph}>Here u will have a colection of Resources for coders!.</p>
-            <div style={{ position: 'relative', width: '100%', height: '100%' }}>
-                {icons.map((icon, index) => (
+            <p style={styles.paragraph}>
+                Discover a curated collection of resources for coders, designed to inspire and empower your journey.
+            </p>
+            <div style={styles.iconContainer}>
+                {icons.map((src, index) => (
                     <img
-                        alt="icon"
                         key={index}
-                        src={icon.src}
-                        style={{ ...styles.icon, ...iconPositions[index], ...responsiveIconPositions[index] }}
+                        src={src}
+                        alt={`icon-${index}`}
+                        style={styles.icon}
                     />
                 ))}
             </div>

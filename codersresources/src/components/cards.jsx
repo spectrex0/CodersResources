@@ -60,7 +60,7 @@ const Main = () => {
 
     const handleCardClick = (card) => {
         if (card === 'changelogs') {
-            window.open(`/changelogs`, '_blank');
+            window.open(`https://pastebin.com/n4L3yyfY`, '_blank');
         }
     };
 
