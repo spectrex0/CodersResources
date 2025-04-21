@@ -1,5 +1,5 @@
-const express = require('express');
-const cors = require('cors');
+import express from 'express';
+import cors from 'cors';
 
 const server = express();
 
@@ -11,8 +11,9 @@ server.use(express.urlencoded({ extended: true }));
 
 const apiRouter = express.Router();
 
-apiRouter.get('/', (req, res) => {
-    res.send('Nice, u are here LMAO');
+apiRouter.get('/', (_, res) => {
+    res.json({ message: 'Welcome to the backend for coders resources!' });
+    res.sendFile(Path.join(__dirname, './index.html'));
 });
 
 const feedbacks = [];
@@ -27,7 +28,7 @@ apiRouter.post('/feedback', (req, res) => {
     res.status(201).json(feedback);
 });
 
-apiRouter.get('/feedback', (req, res) => {
+apiRouter.get('/feedback', (_, res) => {
     res.json(feedbacks);
 });
 
@@ -37,7 +38,7 @@ server.listen(PORT, () => {
     console.log(`Backend for coders resources running ✔`);
 });
 
-server.get('/changelogs', (req, res) => {
+server.get('/changelogs', (_, res) => {
     res.sendFile(__dirname + '/changes.txt');
 });
 
