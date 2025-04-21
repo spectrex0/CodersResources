@@ -12,6 +12,9 @@ Changes made to the webpage:
 2. few problems fixed.
 3. resources section fixed and working.
 4. more links and resources added.
+5. Backend added 
+6. Modified colors for better integration
+7. hosting services changed (render -> vercel)
 
 **************************************************
 *                END OF LOG                     *
