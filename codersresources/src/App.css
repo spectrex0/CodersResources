@@ -1,7 +1,11 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
 body {
-  background-color:#121212;
+  background-color: #0D1117;
   color: white;
   user-select: none;
+  font-family: 'Poppins', sans-serif;
 }
 
 * {
@@ -36,8 +40,4 @@ body {
 
 .App-link {
   color: #61dafb;
-}
-
-body {
-  background-color: #0D1117;
 }

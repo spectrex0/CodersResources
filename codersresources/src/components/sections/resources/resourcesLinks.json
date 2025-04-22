@@ -5,6 +5,12 @@
         "url": "https://www.cleanpng.com/",
         "tags": ["png", "images", "transparent"]
     },
+    "svgl": {
+        "name": "svgl",
+        "description": "Beautiful svgs.",
+        "url": "https://svgl.app/",
+        "tags": ["svg","logos","icons"]
+    },
     "Roadmaps": {
         "name": "Roadmaps",
         "description": "A collection of roadmaps for developers.",

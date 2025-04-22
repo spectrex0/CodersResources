@@ -4,9 +4,9 @@ export default function footer() {
     return (
         <div>
             <footer style={styles.footer}>
-            <p>Thx for ur visit!</p>
-                <p>Made with 💖 by Spectre</p>
-                <p onClick={openChanges}>View Changelogs</p>
+            {/* <p>Thx for ur visit!</p> */}
+                <p>Made with 💙 by Spectre</p>
+                {/* <p onClick={openChanges}>View Changelogs</p> */}
             </footer>
         </div>
     ); 
@@ -15,7 +15,7 @@ export default function footer() {
 const styles  = {
     footer: {
         backgroundColor: 'rgba(44, 48, 53, 0.09)',
-        color: '#fff',
+        color: 'gray',
         textAlign: 'center',
         padding: '0px 0',
         position: 'fixed',
@@ -25,7 +25,3 @@ const styles  = {
         width: '100%',
     },
 }
-
-    const openChanges = () => {
-            window.open(`https://pastebin.com/n4L3yyfY`, '_blank');
-        };
