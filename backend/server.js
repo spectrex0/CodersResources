@@ -7,6 +7,11 @@ const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+app.get('/', (_, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+  
+    }
+);
 app.use(express.json());
 app.use(cors());
 const dataDir = path.join(__dirname, './data', 'feedbacks.json');
