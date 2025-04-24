@@ -48,14 +48,15 @@ export default function Feedback() {
     <div style={style.container}>
       {!token || !userName ? (
         <div>
-          <h2>Get access token</h2>
+          <h2 style={style.title}>Get access token</h2>
           <input
+          style={style.textarea}
             type="text"
             placeholder="Unique name"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
-          <button onClick={generateToken}>Generate Token</button>
+          <button style={style.button} onClick={generateToken}>Generate Token</button>
         </div>
       ) : (
         <div>
@@ -87,37 +88,76 @@ const style = {
     alignItems: "center",
     justifyContent: "center",
     height: "100vh",
+    backgroundColor: "#121212", // Fondo oscuro para un diseño moderno
+  },
+  title: {
+    fontSize: "3rem",
+    marginBottom: "20px",
+    color: '#58A6FF', // Azul claro
+    textShadow: '0px 0px 10px #58A6FF', // Brillo azul
+    fontFamily: "'Poppins', sans-serif", // Fuente moderna
+  },
+  input: {
+    width: "100%",
+    maxWidth: "500px",
+    padding: "15px",
+    borderRadius: "10px",
+    border: "none",
+    backgroundColor: "rgba(255, 255, 255, 0.1)", // Fondo semi-transparente
+    color: "#fff",
+    fontSize: "1rem",
+    outline: "none",
+    marginBottom: "15px",
+    transition: "background-color 0.3s ease", // Efecto suave al interactuar
+    boxShadow: "0px 0px 10px rgba(0, 123, 255, 0.5)", // Brillo azul alrededor del input
   },
   textarea: {
     width: "100%",
     maxWidth: "500px",
-    padding: "10px",
-    borderRadius: "5px",
-    border: "1px solid #ccc",
-    resize: "none",
-    outline: "none",
-     backgroundColor: 'rgba(39, 33, 33, 0.6)',
-     textAlign: "center",
+    padding: "15px",
+    borderRadius: "10px",
+    border: "none",
+    backgroundColor: "rgba(255, 255, 255, 0.1)", // Fondo semi-transparente
     color: "#fff",
+    fontSize: "1rem",
+    outline: "none",
+    resize: "none",
+    marginBottom: "15px",
+    transition: "background-color 0.3s ease", // Efecto suave al interactuar
+    boxShadow: "0px 0px 10px rgba(0, 123, 255, 0.5)", // Brillo azul alrededor del textarea
   },
   button: {
-    padding: "10px 20px",
-    borderRadius: "5px",
+    padding: "15px 30px",
+    borderRadius: "10px",
     border: "none",
-    backgroundColor: "#007bff",
+    left: "45%",
+    position: "absolute",
+    backgroundColor: "#007bff", // Azul brillante
     color: "#fff",
+    fontSize: "1rem",
     cursor: "pointer",
-    marginTop: "10px",
-    marginLeft: "25%",
+    transition: "transform 0.3s ease, box-shadow 0.3s ease", // Animación al hacer clic
+    boxShadow: "0px 0px 10px rgba(0, 123, 255, 0.5)", // Brillo azul alrededor del botón
+    "&:hover": {
+      transform: "scale(1.05)", // Aumenta ligeramente el tamaño al pasar el mouse
+    },
   },
   changelogs: {
     padding: "10px 20px",
-    borderRadius: "5px",
+    borderRadius: "10px",
     border: "none",
-    backgroundColor: "#333",
+    backgroundColor: "#333", // Gris oscuro
     color: "#fff",
+    fontSize: "0.9rem",
     cursor: "pointer",
-    marginTop: "10px",
-    marginLeft: "10px",
+    position: "absolute",
+    bottom: "20px",
+    left: "48%",
+    transform: "translateX(-50%)", // Centra horizontalmente
+    textDecoration: "none",
+    transition: "background-color 0.3s ease", // Efecto suave al interactuar
+    "&:hover": {
+      backgroundColor: "#555", // Cambia el color al pasar el mouse
+    },
   },
-}
+};
