@@ -22,7 +22,7 @@ export default function Feedback() {
     }
 
     try {
-      const response = await fetch('http://localhost:3001/api/feedbacks', {
+      const response = await fetch('https://cr-backend-lime.vercel.app/api/feedbacks', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
