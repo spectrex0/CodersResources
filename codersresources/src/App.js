@@ -30,7 +30,7 @@ function App() {
       { label: 'Home', section: 'homeScreen' },
       { label: 'Resources', section: 'Resources' },
       { label: 'Cheatsheets', section: 'cheatsheets' },
-      { label: 'Feedbacks', section: 'FeedbacksPage' },
+      { label: 'Feedback', section: 'FeedbacksPage' },
     ];
 
     return (

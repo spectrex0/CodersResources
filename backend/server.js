@@ -1,45 +1,53 @@
-import express from 'express';
-import cors from 'cors';
+const express = require('express');
+const fs = require('fs');
+const path = require('path');
+const cors = require('cors');
 
-const server = express();
 
+const app = express();
 const PORT = process.env.PORT || 3001;
 
-server.use(cors());
-server.use(express.json());
-server.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(cors());
+const dataDir = path.join(__dirname, './data', 'feedbacks.json');
 
-const apiRouter = express.Router();
+if (!fs.existsSync(dataDir)) {
+  fs.writeFileSync(dataDir, JSON.stringify([]));
+}
 
-apiRouter.get('/', (_, res) => {
-    res.json({ message: 'Welcome to the backend for coders resources!' });
-    res.sendFile(Path.join(__dirname, '/index.html'));
+app.post('/api/feedbacks', (req, res) => {
+  const { userName, comment } = req.body;
+
+  if (!comment) {
+    return res.status(400).json({ error: 'The comment are required.' });
+  }
+
+  try {
+    const feedbacks = JSON.parse(fs.readFileSync(dataDir, 'utf-8'));
+
+    const newFeedback = { userName, comment };
+    feedbacks.push(newFeedback);
+
+    fs.writeFileSync(dataDir, JSON.stringify(feedbacks, null, 2));
+
+    res.status(200).json({ message: 'Comment saved successfully! thx for ur message', });
+    console.log('Feedback saved:', newFeedback.comment + `\n from ${userName}`);
+  } catch (error) {
+    console.error('Error saving feedback:', error);
+    res.status(500).json({ error: 'Failed to save feedback' });
+  }
 });
 
-const feedbacks = [];
-
-apiRouter.post('/feedback', (req, res) => {
-    const { name, message } = req.body;
-    if (!name || !message) {
-        return res.status(400).json({ error: 'Name and message are required' });
-    }
-    const feedback = { id: feedbacks.length + 1, name, message };
-    feedbacks.push(feedback);
-    res.status(201).json(feedback);
+app.get('/api/feedbacks', (req, res) => {
+  try {
+    const feedbacks = JSON.parse(fs.readFileSync(dataDir, 'utf-8'));
+    res.status(200).json(feedbacks);
+  } catch (error) {
+    console.error('Error reading feedbacks:', error);
+    res.status(500).json({ error: 'Failed to read feedbacks' });
+  }
 });
 
-apiRouter.get('/feedback', (_, res) => {
-    res.json(feedbacks);
+app.listen(PORT, () => {
+  console.log(`Backend launched http://localhost:${PORT}/api`);
 });
-
-server.use('/api', apiRouter);
-
-server.listen(PORT, () => {
-    console.log(`Backend for coders resources running ✔`);
-});
-
-server.get('/changelogs', (_, res) => {
-    res.sendFile(__dirname + '/changes.txt');
-});
-
-server.use(express.static('codersresources'));
