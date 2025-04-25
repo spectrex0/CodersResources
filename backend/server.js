@@ -3,20 +3,16 @@ const fs = require('fs');
 const path = require('path');
 const cors = require('cors');
 
-
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-app.get('/api', (_, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
-  
-    }
-);
+// Middleware para parsear JSON y habilitar CORS
 app.use(express.json());
-app.use(cors(
-  'https://codersresources.vercel.app',
-  'http://localhost:3000',
-));
+app.use(cors({
+  origin: ['https://codersresources.vercel.app', 'http://localhost:3000'],
+}));
+
+// Ruta para guardar comentarios
 const dataDir = path.join(__dirname, './data', 'feedbacks.json');
 
 if (!fs.existsSync(dataDir)) {
@@ -27,7 +23,7 @@ app.post('/api/feedbacks', (req, res) => {
   const { userName, comment } = req.body;
 
   if (!comment) {
-    return res.status(400).json({ error: 'The comment are required.' });
+    return res.status(400).json({ error: 'The comment is required.' });
   }
 
   try {
@@ -38,7 +34,7 @@ app.post('/api/feedbacks', (req, res) => {
 
     fs.writeFileSync(dataDir, JSON.stringify(feedbacks, null, 2));
 
-    res.status(200).json({ message: 'Comment saved successfully! thx for ur message', });
+    res.status(200).json({ message: 'Comment saved successfully! Thanks for your message.', feedback: newFeedback });
     console.log('Feedback saved:', newFeedback.comment + `\n from ${userName}`);
   } catch (error) {
     console.error('Error saving feedback:', error);
@@ -57,5 +53,5 @@ app.get('/api/feedbacks', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Backend launched http://localhost:${PORT}/api`);
+  console.log(`Backend launched on http://localhost:${PORT}/api`);
 });
