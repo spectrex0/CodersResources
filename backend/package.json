@@ -3,7 +3,7 @@
     "cors": "^2.8.5",
     "express": "^5.1.0"
   },
-"scripts": {
-  "build": "node ./server.js"
-}
+  "scripts": {
+    "build": "node ./server.js"
+  }
 }
