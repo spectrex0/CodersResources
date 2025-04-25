@@ -1,4 +1,3 @@
-import { text } from "express";
 import React, { useState } from "react";
 
 
@@ -23,7 +22,7 @@ export default function Feedback() {
     }
 
     try {
-      const response = await fetch('https://cr-backend-lime.vercel.app/feedbacks', {
+      const response = await fetch('https://localhost:3001/feedbacks', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
