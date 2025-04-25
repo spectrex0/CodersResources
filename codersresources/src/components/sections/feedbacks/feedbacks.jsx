@@ -22,7 +22,7 @@ export default function Feedback() {
     }
 
     try {
-      const response = await fetch('https://coders-resources-backend.vercel.app/feedbacks', {
+      const response = await fetch('https://e60d8ca8-d5f3-473c-9477-d5167dd9c281-00-3qha0ggdgunry.kirk.replit.dev/feedbacks', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
