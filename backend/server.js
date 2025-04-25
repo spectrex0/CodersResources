@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3001;
 // Middleware para parsear JSON y habilitar CORS
 app.use(express.json());
 app.use(cors({
-  origin: ['https://codersresources.vercel.app', 'http://localhost:3000'],
+  origin: ['https://codersresources.vercel.app', 'http://localhost:3000', 'http://localhost:3001', 'https://codersresources.com'],
 }));
 
 // Ruta para guardar comentarios
@@ -19,7 +19,9 @@ if (!fs.existsSync(dataDir)) {
   fs.writeFileSync(dataDir, JSON.stringify([]));
 }
 
-app.post('/api/feedbacks', (req, res) => {
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.post('/feedbacks', (req, res) => {
   const { userName, comment } = req.body;
 
   if (!comment) {
@@ -42,7 +44,7 @@ app.post('/api/feedbacks', (req, res) => {
   }
 });
 
-app.get('/api/feedbacks', (req, res) => {
+app.get('/feedbacks', (req, res) => {
   try {
     const feedbacks = JSON.parse(fs.readFileSync(dataDir, 'utf-8'));
     res.status(200).json(feedbacks);
@@ -53,5 +55,13 @@ app.get('/api/feedbacks', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Backend launched on http://localhost:${PORT}/api`);
+  console.log(`Backend launched on http://localhost:${PORT}`);
 });
+
+// Middleware para manejar errores
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
+});
+
