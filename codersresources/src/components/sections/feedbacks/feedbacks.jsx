@@ -126,7 +126,6 @@ const FeedbackList = () => {
   );
 };
 
-// Función para abrir los logs en una nueva pestaña
 function openLogs() {
   window.open("https://pastebin.com/n4L3yyfY", "_blank");
 }
