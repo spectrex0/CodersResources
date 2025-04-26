@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+// import x from '../../../../api/feedbacks'
 export default function Feedback() {
   const [name, setName] = useState("");
   const [token, setToken] = useState(localStorage.getItem("userToken") || "");
@@ -26,7 +26,7 @@ export default function Feedback() {
   try {
     
       const usuario = localStorage.getItem("userName")
-    const response = await fetch("/api/feedbacks", {
+    const response = await fetch("../../../../api/feedbacks", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -101,7 +101,7 @@ const FeedbackList = () => {
   React.useEffect(() => {
     const fetchFeedbacks = async () => {
       try {
-        const response = await fetch("/api/feedbacks");
+        const response = await fetch("../../../../api/feedbacks");
         if (!response.ok) {
           throw new Error("Failed to fetch feedbacks");
         }
