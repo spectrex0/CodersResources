@@ -4,10 +4,7 @@ const path = require("path");
 
 const router = express.Router();
 
-// Ruta del archivo JSON
 const DATA_FILE = path.join(__dirname, "../db.json");
-
-// Endpoint GET para leer comentarios
 router.get("/", (req, res) => {
   try {
     const data = JSON.parse(fs.readFileSync(DATA_FILE, "utf-8"));
@@ -18,7 +15,6 @@ router.get("/", (req, res) => {
   }
 });
 
-// Endpoint POST para agregar comentarios
 router.post("/", (req, res) => {
   const { userName, comment } = req.body;
 

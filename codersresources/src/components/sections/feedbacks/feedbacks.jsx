@@ -96,11 +96,8 @@ export default function Feedback() {
   );
 }
 
-// Componente para mostrar la lista de comentarios desde json-server
 const FeedbackList = () => {
   const [feedbacks, setFeedbacks] = useState([]);
-
-  // Obtener los comentarios del servidor cuando el componente se monta
   React.useEffect(() => {
     const fetchFeedbacks = async () => {
       try {
