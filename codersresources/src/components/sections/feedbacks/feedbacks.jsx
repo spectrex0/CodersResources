@@ -15,39 +15,39 @@ export default function Feedback() {
     setUserName(name);
   };
 
-  const handleCommentSubmit = async (e) => {
-  e.preventDefault();
+//   const handleCommentSubmit = async (e) => {
+//   e.preventDefault();
 
-  if (!comment) {
-    alert("Please type something..");
-    return;
-  }
+//   if (!comment) {
+//     alert("Please type something..");
+//     return;
+//   }
 
-  try {
+//   try {
     
-      const usuario = localStorage.getItem("userName")
-    const response = await fetch("../../../../api/feedbacks", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ userName: usuario, comment }),
+//       const usuario = localStorage.getItem("userName")
+//     const response = await fetch("../../../../api/feedbacks", {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify({ userName: usuario, comment }),
       
-    });
+//     });
 
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
+//     if (!response.ok) {
+//       throw new Error(`HTTP error! Status: ${response.status}`);
+//     }
 
-    const data = await response.json();
-    console.log("Success:", data);
-    setComment("");
-    alert("Comment saved successfully!");
-  } catch (error) {
-    console.error("Error submitting comment:", error);
-    alert("Failed to submit comment. Please try again later.");
-  }
-};
+//     const data = await response.json();
+//     console.log("Success:", data);
+//     setComment("");
+//     alert("Comment saved successfully!");
+//   } catch (error) {
+//     console.error("Error submitting comment:", error);
+//     alert("Failed to submit comment. Please try again later.");
+//   }
+// };
 
   return (
     <div style={style.container}>
@@ -96,35 +96,35 @@ export default function Feedback() {
   );
 }
 
-const FeedbackList = () => {
-  const [feedbacks, setFeedbacks] = useState([]);
-  React.useEffect(() => {
-    const fetchFeedbacks = async () => {
-      try {
-        const response = await fetch("../../../../api/feedbacks");
-        if (!response.ok) {
-          throw new Error("Failed to fetch feedbacks");
-        }
-        const data = await response.json();
-        setFeedbacks(data);
-      } catch (error) {
-        console.error("Error fetching feedbacks:", error);
-      }
-    };
+// const FeedbackList = () => {
+//   const [feedbacks, setFeedbacks] = useState([]);
+//   React.useEffect(() => {
+//     const fetchFeedbacks = async () => {
+//       try {
+//         const response = await fetch("../../../../api/feedbacks");
+//         if (!response.ok) {
+//           throw new Error("Failed to fetch feedbacks");
+//         }
+//         const data = await response.json();
+//         setFeedbacks(data);
+//       } catch (error) {
+//         console.error("Error fetching feedbacks:", error);
+//       }
+//     };
 
-    fetchFeedbacks();
-  }, []);
+//     fetchFeedbacks();
+//   }, []);
 
-  return (
-    <ul>
-      {feedbacks.map((feedback, index) => (
-        <li key={index}>
-          <strong>{feedback.userName}:</strong> {feedback.comment}
-        </li>
-      ))}
-    </ul>
-  );
-};
+//   return (
+//     <ul>
+//       {feedbacks.map((feedback, index) => (
+//         <li key={index}>
+//           <strong>{feedback.userName}:</strong> {feedback.comment}
+//         </li>
+//       ))}
+//     </ul>
+//   );
+// };
 
 function openLogs() {
   window.open("https://pastebin.com/n4L3yyfY", "_blank");
