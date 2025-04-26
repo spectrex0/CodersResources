@@ -78,7 +78,7 @@ export default function Feedback() {
             onChange={(e) => setComment(e.target.value)}
           />
           <br />
-          <button style={style.button} onClick={handleCommentSubmit}>
+          <button style={style.button} >
             Send
           </button>
           <button style={style.changelogs} onClick={openLogs}>
@@ -88,7 +88,7 @@ export default function Feedback() {
           {/* Mostrar comentarios guardados */}
           <div>
             <h3>Saved Feedbacks:</h3>
-            <FeedbackList />
+            {/* <FeedbackList /> */}
           </div>
         </div>
       )}
