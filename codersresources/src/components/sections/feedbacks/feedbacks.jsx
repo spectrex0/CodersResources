@@ -25,6 +25,21 @@ export default function Feedback() {
     } catch (error) {
       console.error("Error generating token:", error);
     }
+
+    fetch(`https://codersresources-backend.onrender.com/users/${name}`)
+      .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error("User not found");
+      }
+      })
+      .then((data) => {
+      console.log("User already exists:", data);
+      })
+      .catch((error) => {
+      console.error("Error checking user existence:", error);
+      });
   };
 
    const handleCommentSubmit = async () => {
