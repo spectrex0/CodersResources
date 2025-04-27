@@ -33,6 +33,7 @@ export default function Feedback() {
 
       if (response.ok) {
         setComment("");
+        alert("Comment submitted successfully!");
       } else {
         alert(`Error: ${data.error}`);
       }
