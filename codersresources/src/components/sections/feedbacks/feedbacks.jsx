@@ -20,7 +20,7 @@ export default function Feedback() {
     if ( !comment.trim()) {
     <ErrorCard errorMessage="Please type something..." />
     alert("Please type something...");
-    return;
+    return;   
     }
 
     try {
