@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import ErrorCard from "../../errorCard";
-import GoodCard from "../../goodCard";
+// import ErrorCard from "../../errorCard";
+// import GoodCard from "../../goodCard";
 
 export default function Feedback() {
   const [name, setName] = useState("");
@@ -14,30 +14,42 @@ export default function Feedback() {
     localStorage.setItem("userName", name);
     setToken(generatedToken);
     setUserName(name);
+    try {
+      fetch("https://codersresources-backend.onrender.com/users", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({name: name, token: generatedToken }),
+      });
+    } catch (error) {
+      console.error("Error generating token:", error);
+    }
   };
 
    const handleCommentSubmit = async () => {
     if ( !comment.trim()) {
-    <ErrorCard errorMessage="Please type something..." />
+    // <ErrorCard errorMessage="Please type something..." />
     alert("Please type something...");
     return;   
     }
 
     try {
-      const response = await fetch('https://formspree.io/f/mldbdoew', {
+      const response = await fetch('https://codersresources-backend.onrender.com/feedbacks', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ userName, comment }),
+        body: JSON.stringify({ userName, comment, token }),
       });
 
 
       if (response.ok) {
         setComment("");
-        return <GoodCard goodMessage="Thx for ur comment!" />;
+        // return <GoodCard goodMessage="Thx for ur comment!" />;
+        alert("Thx for ur comment!");
       } else {
-        return <ErrorCard errorMessage="Something is wrong... Try again later" />;
+        // return <ErrorCard errorMessage="Something is wrong... Try again later" />;
       }
     } catch (error) {
       console.error('Error submitting comment:', error);
@@ -93,14 +105,14 @@ const style = {
     alignItems: "center",
     justifyContent: "center",
     height: "100vh",
-    backgroundColor: "#121212", // Fondo oscuro para un diseño moderno
+    backgroundColor: "#121212",
   },
   title: {
     fontSize: "3rem",
     marginBottom: "20px",
-    color: '#58A6FF', // Azul claro
-    textShadow: '0px 0px 10px #58A6FF', // Brillo azul
-    fontFamily: "'Poppins', sans-serif", // Fuente moderna
+    color: '#58A6FF',
+    textShadow: '0px 0px 10px #58A6FF',
+    fontFamily: "'Poppins', sans-serif",
   },
   input: {
     width: "100%",
