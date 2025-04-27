@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-
 export default function Feedback() {
   const [name, setName] = useState("");
   const [token, setToken] = useState(localStorage.getItem("userToken") || "");
@@ -22,7 +21,7 @@ export default function Feedback() {
     }
 
     try {
-      const response = await fetch('https://localhost:3001/feedbacks', {
+      const response = await fetch('https://formspree.io/f/mldbdoew', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
