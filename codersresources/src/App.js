@@ -33,7 +33,7 @@ function App() {
       { label: 'Resources', section: 'Resources' },
       { label: 'Cheatsheets', section: 'cheatsheets' },
       { label: 'Feedback', section: 'FeedbacksPage' },
-      { label: 'Dashboard', section: 'dashboard' }
+      // { label: 'Dashboard', section: 'dashboard' }
     ];
 
     return (
