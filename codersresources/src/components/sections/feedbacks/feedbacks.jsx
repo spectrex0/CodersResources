@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import ErrorCard from "../../errorCard";
+import GoodCard from "../../goodCard";
 
 export default function Feedback() {
   const [name, setName] = useState("");
@@ -15,9 +17,10 @@ export default function Feedback() {
   };
 
    const handleCommentSubmit = async () => {
-    if ( !comment) {
-      alert("Please fill in both name and comment.");
-      return;
+    if ( !comment.trim()) {
+    <ErrorCard errorMessage="Please type something..." />
+    alert("Please type something...");
+    return;
     }
 
     try {
@@ -29,13 +32,12 @@ export default function Feedback() {
         body: JSON.stringify({ userName, comment }),
       });
 
-      const data = await response.json();
 
       if (response.ok) {
         setComment("");
-        alert("Comment submitted successfully!");
+        return <GoodCard goodMessage="Thx for ur comment!" />;
       } else {
-        alert(`Error: ${data.error}`);
+        return <ErrorCard errorMessage="Something is wrong... Try again later" />;
       }
     } catch (error) {
       console.error('Error submitting comment:', error);
@@ -46,6 +48,7 @@ export default function Feedback() {
 
   return (
     <div style={style.container}>
+    
       {!token || !userName ? (
         <div>
           <h2 style={style.title}>Get access token</h2>
@@ -69,7 +72,9 @@ export default function Feedback() {
             value={comment}
             onChange={(e) => setComment(e.target.value)}
           />
+
           <br />
+          
           <button style={style.button} onClick={handleCommentSubmit}>Send</button>
           <button style={style.changelogs} onClick={openLogs} >View changes</button>
         </div>
