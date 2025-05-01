@@ -8,21 +8,24 @@ export default function Feedback() {
   const [userName, setUserName] = useState(localStorage.getItem("userName") || "");
   const [comment, setComment] = useState("");
 
-  const generateToken = () => {
-    const generatedToken = crypto.randomUUID();
+  const generateToken = async () => {
+    const generatedToken = crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).substring(2);
     setToken(generatedToken);
     localStorage.setItem("userToken", generatedToken);
     localStorage.setItem("userName", name);
     setUserName(name);
     try {
       // https://codersresources-backend.onrender.com/createUsers
-      fetch("https://codersresources-backend.onrender.com/createUser", {
+      const response = await fetch("https://codersresources-backend.onrender.com/createUser", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({name: name, token: generatedToken }),
       });
+      if (!response.ok) {
+        throw new Error("Failed to create user");
+      }
       // alert("Token generated successfully!");
       localStorage.setItem("userToken", generatedToken);
     } catch (error) {
@@ -59,7 +62,7 @@ export default function Feedback() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ name: name || localStorage.getItem(userName), feedback: comment, token: generateToken.generateToken }),
+        body: JSON.stringify({ name: name || localStorage.getItem("userName"), feedback: comment, token: token }),
       });
 
 
