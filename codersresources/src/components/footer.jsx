@@ -5,7 +5,7 @@ export default function footer() {
         <div>
             <footer style={styles.footer}>
             {/* <p>Thx for ur visit!</p> */}
-                <p>Made with 💙 by Spectre</p>
+                <p>Made with 💙 by Tokyo (Spectre)</p>
                 {/* <p onClick={openChanges}>View Changelogs</p> */}
             </footer>
         </div>

@@ -10,23 +10,26 @@ export default function Feedback() {
 
   const generateToken = () => {
     const generatedToken = crypto.randomUUID();
+    setToken(generatedToken);
     localStorage.setItem("userToken", generatedToken);
     localStorage.setItem("userName", name);
-    setToken(generatedToken);
     setUserName(name);
     try {
-      fetch("https://codersresources-backend.onrender.com/users", {
+      // https://codersresources-backend.onrender.com/createUsers
+      fetch("http://localhost:3001/createUser", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({name: name, token: generatedToken }),
       });
+      // alert("Token generated successfully!");
+      localStorage.setItem("userToken", generatedToken);
     } catch (error) {
       console.error("Error generating token:", error);
     }
-
-    fetch(`https://codersresources-backend.onrender.com/users/${name}`)
+// https://codersresources-backend.onrender.com/getUsers/${name}
+    fetch(`http://localhost:3001/getUsers/${name}`)
       .then((response) => {
       if (response.ok) {
         return response.json();
@@ -50,21 +53,20 @@ export default function Feedback() {
     }
 
     try {
-      const response = await fetch('https://codersresources-backend.onrender.com/feedbacks', {
+      const response = await fetch('http://localhost:3001/createFeedbacks', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ userName, comment, token }),
+        body: JSON.stringify({ name: name || localStorage.getItem(userName), feedback: comment, token: generateToken.generateToken }),
       });
 
 
       if (response.ok) {
         setComment("");
-        // return <GoodCard goodMessage="Thx for ur comment!" />;
+    
         alert("Thx for ur comment!");
       } else {
-        // return <ErrorCard errorMessage="Something is wrong... Try again later" />;
       }
     } catch (error) {
       console.error('Error submitting comment:', error);
@@ -82,7 +84,7 @@ export default function Feedback() {
           <input
           style={style.textarea}
             type="text"
-            placeholder="Unique name"
+            placeholder="Unique name or current username to login"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
@@ -120,7 +122,7 @@ const style = {
     alignItems: "center",
     justifyContent: "center",
     height: "100vh",
-    backgroundColor: "#121212",
+    backgroundColor: "#0D1117",
   },
   title: {
     fontSize: "3rem",
