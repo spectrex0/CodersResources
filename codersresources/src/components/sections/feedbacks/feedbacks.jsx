@@ -16,7 +16,7 @@ export default function Feedback() {
     setUserName(name);
     try {
       // https://codersresources-backend.onrender.com/createUsers
-      fetch("http://localhost:3001/createUser", {
+      fetch("https://codersresources-backend.onrender.com/createUser", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -29,7 +29,7 @@ export default function Feedback() {
       console.error("Error generating token:", error);
     }
 // https://codersresources-backend.onrender.com/getUsers/${name}
-    fetch(`http://localhost:3001/getUsers/${name}`)
+    fetch(`https://codersresources-backend.onrender.com/getUsers/${name}`)
       .then((response) => {
       if (response.ok) {
         return response.json();
@@ -53,7 +53,7 @@ export default function Feedback() {
     }
 
     try {
-      const response = await fetch('http://localhost:3001/createFeedbacks', {
+      const response = await fetch('https://codersresources-backend.onrender.com/createFeedbacks', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
