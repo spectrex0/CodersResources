@@ -29,21 +29,22 @@ export default function Feedback() {
       console.error("Error generating token:", error);
     }
 // https://codersresources-backend.onrender.com/getUsers/${name}
-    fetch(`https://codersresources-backend.onrender.com/getUsers/${name}`)
-      .then((response) => {
-      if (response.ok) {
-        return response.json();
-      } else {
-        throw new Error("User not found");
-      }
-      })
-      .then((data) => {
-      console.log("User already exists:", data);
-      })
-      .catch((error) => {
-      console.error("Error checking user existence:", error);
-      });
   };
+
+      // fetch(`https://codersresources-backend.onrender.com/getUsers/${name}`)
+      // .then((response) => {
+      // if (response.ok) {
+      //   return response.json();
+      // } else {
+      //   throw new Error("User not found");
+      // }
+      // })
+      // .then((data) => {
+      // console.log("User already exists:", data);
+      // })
+      // .catch((error) => {
+      // console.error("Error checking user existence:", error);
+      // });
 
    const handleCommentSubmit = async () => {
     if ( !comment.trim()) {
