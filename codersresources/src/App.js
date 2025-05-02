@@ -7,7 +7,7 @@ import Resources from './components/sections/resources/resources';
 import Footer from './components/footer'
 import FeedbacksPage from './components/sections/feedbacks/feedbacks';
 import Cheatsheets from './components/sections/cheatsheets/cheatsheets';
-// import Dashboard from './components/sections/dashboard/dasboard';
+//  import Dashboard from './components/sections/dashboard/dasboard';
 function App() {
   const [activeSection, setActiveSection] = useState('homeScreen');
   const sections = {
