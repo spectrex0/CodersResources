@@ -50,7 +50,7 @@ const styles = {
         filter: 'opacity(0.4)',
         
         padding: '10px',
-        boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.2)', 
+        // boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.2)', 
     },
     '@media (max-width: 768px)': {
         title: {
@@ -85,7 +85,7 @@ const Main = () => {
             //   .typeString('Welcome to Coders Resources')
             //   .pauseFor(2000)
             //   .deleteAll()
-              .typeString('Coders Resources by Tokio')
+              .typeString('Coders Resources by Tokyo')
               .start();
           }}
         />
