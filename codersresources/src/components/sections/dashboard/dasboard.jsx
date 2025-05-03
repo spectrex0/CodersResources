@@ -1,18 +1,22 @@
 import React, { useState, useEffect } from 'react';
+import dotenv from 'dotenv';
+dotenv.config();
+const feedbackLink = process.env.feedbackUrl;
+const adminPass = process.env.adminPass;  
 
 function Dashboard() {
   const [feedbacks, setFeedbacks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false); // New state for login
-  const [password, setPassword] = useState(''); // New state for password input
+  const [password, setPassword] = useState(''); 
   const [ users] = useState([]);
 
   useEffect(() => {
     if (isLoggedIn) {
       async function fetchFeedbacks() {
         try {
-          const response = await fetch('https://codersresources-backend.onrender.com/feedbacks', {
+          const response = await fetch(feedbackLink, {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json',
