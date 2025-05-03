@@ -10,6 +10,7 @@
     "@vercel/blob": "^1.0.0",
     "@vercel/edge-config": "^1.4.0",
     "cors": "^2.8.5",
+    "crypto": "^1.0.1",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "fs": "^0.0.1-security",
