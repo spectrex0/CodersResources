@@ -5,6 +5,12 @@
         "url": "https://www.cleanpng.com/",
         "tags": ["png", "images", "transparent"]
     },
+    "Snippify": {
+        "name": "Snippify",
+        "description": "Code snippets.",
+        "url": "https://snippify-beta.vercel.app/",
+        "tags": ["snippets", "code", "tool"]
+    },
     "svgl": {
         "name": "svgl",
         "description": "Beautiful and animated svgs.",

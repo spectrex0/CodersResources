@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import resourcesData from './resourcesLinks.json';
-
+import DownloadBtn from '../../topBtn';
 const styles = {
     resourcesContainer: {
         display: 'flex',
@@ -154,15 +154,10 @@ ResourceCard.propTypes = {
 };
 
 function Resources() {
-    const [isButtonHovered, setIsButtonHovered] = useState(false);
-
-    const allLinks = Object.values(resourcesData)
-        .map(item => item.url)
-        .join('\n');
-
     return (
         <div>
             <div style={styles.resourcesContainer}>
+            <DownloadBtn/>
                 {Object.values(resourcesData).map((resource, index) => (
                     <ResourceCard
                         key={index}
@@ -173,20 +168,6 @@ function Resources() {
                         image={resource.image}
                     />
                 ))}
-            </div>
-            <div style={{ textAlign: 'center', marginTop: '30px',backgroundColor:'#0D1117', }}>
-                <a
-                    href={`data:text/plain;charset=utf-8,${encodeURIComponent(allLinks)}`}
-                    download="resources_links.txt"
-                    style={{
-                        ...styles.allLinksButton.base,
-                        ...(isButtonHovered ? styles.allLinksButton.hover : {}),
-                    }}
-                    onMouseEnter={() => setIsButtonHovered(true)}
-                    onMouseLeave={() => setIsButtonHovered(false)}
-                >
-                    Download All Links
-                </a>
             </div>
         </div>
     );

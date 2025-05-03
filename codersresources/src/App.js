@@ -38,6 +38,7 @@ function App() {
 
     return (
       <nav style={styles.nav}>
+      
         <ul style={{ listStyleType: 'none', margin: 0, padding: 0, display: 'flex', gap: '15px' }}>
           {menuItems.map((item) => (
             <li
@@ -69,17 +70,20 @@ function App() {
 
 const styles = {
   nav: {
-        backgroundColor: 'rgba(44, 48, 53, 0.09)',
+        backgroundColor: 'rgba(0, 115, 255, 0.06)',
         color: '#58A6FF',
         textAlign: 'center',
-        padding: '0px 0',
+        padding: '5px 0',
         position: 'absolute',
         top: 0,
         height: '40px',
         alignItems: 'center',
         display: 'flex',
         justifyContent: 'space-around',
-        width: '100%',
+        borderRadius: '8px',
+        width:'30%',
+        left: '35%',
+        marginTop:15
     },
   }
 
