@@ -1,11 +1,7 @@
 import React, { useState } from "react";
 // import ErrorCard from "../../errorCard";
 // import GoodCard from "../../goodCard";
-import dotenv from 'dotenv';
-dotenv.config();
-const feedbackLink = process.env.feedbackUrl;
-const createFeedbacks = process.env.createFeedbacks;
-const createUser = process.env.createUser;
+
 export default function Feedback() {
   const [name, setName] = useState("");
   const [token, setToken] = useState(localStorage.getItem("userToken") || "");
@@ -19,7 +15,8 @@ export default function Feedback() {
     localStorage.setItem("userName", name);
     setUserName(name);
     try {
-      const response = await fetch(createUser, {
+      // https://codersresources-backend.onrender.com/createUsers
+      const response = await fetch("https://codersresources-backend.onrender.com/createUser", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -34,7 +31,23 @@ export default function Feedback() {
     } catch (error) {
       console.error("Error generating token:", error);
     }
+// https://codersresources-backend.onrender.com/getUsers/${name}
   };
+
+      // fetch(`https://codersresources-backend.onrender.com/getUsers/${name}`)
+      // .then((response) => {
+      // if (response.ok) {
+      //   return response.json();
+      // } else {
+      //   throw new Error("User not found");
+      // }
+      // })
+      // .then((data) => {
+      // console.log("User already exists:", data);
+      // })
+      // .catch((error) => {
+      // console.error("Error checking user existence:", error);
+      // });
 
    const handleCommentSubmit = async () => {
     if ( !comment.trim()) {
@@ -44,7 +57,7 @@ export default function Feedback() {
     }
 
     try {
-      const response = await fetch(createFeedbacks, {
+      const response = await fetch('https://codersresources-backend.onrender.com/createFeedbacks', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
