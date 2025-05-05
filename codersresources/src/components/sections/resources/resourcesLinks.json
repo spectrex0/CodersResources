@@ -23,6 +23,12 @@
         "url": "https://roadmap.sh/",
         "tags": ["roadmaps", "developers"]
     },
+    "JWT.io": {
+        "name": "JWT.io",
+        "description": "A tool to decode, verify, and generate JWTs.",
+        "url": "https://jwt.io/",
+        "tags": ["jwt", "tool", "developers"]
+    },
         "svgRepo": {
         "name": "SVG Repo",
         "description": "A repository for free SVG vectors and icons.",

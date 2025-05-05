@@ -165,7 +165,6 @@ function Resources() {
                         description={resource.description}
                         url={resource.url}
                         tags={resource.tags}
-                        image={resource.image}
                     />
                 ))}
             </div>
