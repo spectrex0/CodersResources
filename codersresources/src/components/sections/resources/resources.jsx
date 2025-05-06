@@ -103,6 +103,18 @@ const styles = {
             transform: 'scale(1.1)',
         },
     },
+    searchBar: {
+        width: '20%',
+        maxWidth: '400px',
+        padding: '10px',
+        borderRadius: '8px',
+        marginTop: '1%',
+        border: '1px solid #21262D',
+        fontSize: '1rem',
+        fontFamily: 'Roboto, sans-serif',
+        backgroundColor: 'rgba(0, 115, 255, 0.06)',
+        color: '#C9D1D9',
+    },
 };
 
 function ResourceCard({ name, description, url, tags = [], image }) {
@@ -154,17 +166,31 @@ ResourceCard.propTypes = {
 };
 
 function Resources() {
+    const [searchQuery, setSearchQuery] = useState('');
+
+    const filteredResources = Object.values(resourcesData).filter((resource) =>
+        resource.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
     return (
         <div>
+            <input
+                type="text"
+                placeholder="Search resources..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                style={styles.searchBar}
+            />
             <div style={styles.resourcesContainer}>
-            <DownloadBtn/>
-                {Object.values(resourcesData).map((resource, index) => (
+                <DownloadBtn />
+                {filteredResources.map((resource, index) => (
                     <ResourceCard
                         key={index}
                         name={resource.name}
                         description={resource.description}
                         url={resource.url}
                         tags={resource.tags}
+                        image={resource.image}
                     />
                 ))}
             </div>

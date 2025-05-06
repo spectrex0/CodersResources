@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import cheatsheetsData from './cheatsheetsLinks.json';
 
 const styles = {
@@ -63,6 +63,18 @@ const styles = {
             transform: 'scale(1.1)',
         },
     },
+    searchBar: {
+        width: '20%',
+        maxWidth: '400px',
+        padding: '10px',
+        borderRadius: '8px',
+        marginTop: '1%',
+        border: '1px solid #21262D',
+        fontSize: '1rem',
+        fontFamily: 'Roboto, sans-serif',
+        backgroundColor: 'rgba(0, 115, 255, 0.06)',
+        color: '#C9D1D9',
+    },
 };
 
 function Card(props) {
@@ -99,10 +111,23 @@ function Card(props) {
 }
 
 function Cheatsheets() {
+    const [searchQuery, setSearchQuery] = useState('');
+
+    const filteredCheatsheets = cheatsheetsData.filter((item) =>
+        item.language.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
     return (
         <div>
+            <input
+                type="text"
+                placeholder="Search cheatsheets..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                style={styles.searchBar}
+            />
             <div style={styles.cheatsheetsContainer}>
-                {cheatsheetsData.map((item, index) => (
+                {filteredCheatsheets.map((item, index) => (
                     <Card
                         key={index}
                         language={item.language}
