@@ -26,6 +26,15 @@
         ]
     },
     {
+
+        "language": "TypeScript",
+        "description": "TypeScript Cheatsheets",
+        "links": [
+            "https://www.cheatography.com/davechild/cheat-sheets/typescript/",
+            "https://www.typescriptlang.org/docs/handbook/intro.html"
+        ]
+    },
+    {
         "language": "HTML",
         "description": "HTML Cheatsheets",
         "links": [

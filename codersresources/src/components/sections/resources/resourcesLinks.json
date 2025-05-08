@@ -11,6 +11,12 @@
         "url": "https://snippify-beta.vercel.app/",
         "tags": ["snippets", "code", "tool"]
     },
+    "mongooseDOCS": {
+        "name": "MongooseJS",
+        "description": "Everything that u need to know about mongoose",
+        "url": "https://mongoosejs.com/",
+        "tags": ["dataBase","tools"]
+    },
     "svgl": {
         "name": "svgl",
         "description": "Beautiful and animated svgs.",
