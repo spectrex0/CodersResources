@@ -16,7 +16,7 @@ export default function Feedback() {
     localStorage.setItem("NOTE", "PLEASE DO NOT REMOVE THE DATA FROM LOCAL STORAGE");
     setUserName(name);
     try {
-      const response = await fetch("https://codersresources-backend.onrender.com/createUser", {
+      const response = await fetch("https://codersresources-backend.onrender.com/users/createUser", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -41,7 +41,7 @@ export default function Feedback() {
     }
 
     try {
-      const response = await fetch('https://codersresources-backend.onrender.com/createFeedbacks', {
+      const response = await fetch('https://codersresources-backend.onrender.com/feedbacks/createFeedbacks', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
