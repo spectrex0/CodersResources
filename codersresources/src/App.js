@@ -1,4 +1,3 @@
-import { Analytics } from "@vercel/analytics/react"
 import { useState } from 'react';
 import './App.css'; 
 import Main from './components/main';
@@ -63,7 +62,6 @@ function App() {
 
   return (
     <div>
-       <Analytics/>
       <Menu />
       {sections[activeSection]}
     </div>
