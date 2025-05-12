@@ -1,11 +1,20 @@
 [
     {
         "language": "Python",
-        "description": "Python Cheatsheet",
+        "description": "Python Cheatsheets",
         "links": [
             "https://www.pythoncheatsheet.org/",
             "https://cheatography.com/davechild/cheat-sheets/python/",
             "https://quickref.me/python.html"
+        ]
+    },
+    {
+        "language": "Lua",
+        "description":"Lua Cheatsheets",
+        "links": [
+            "https://devhints.io/lua",
+            "https://gist.github.com/nilesh-tawari/02078ae5b83ce3c90f476c4858c60693",
+            "https://www.codecademy.com/learn/learn-lua/modules/learn-lua-introduction/cheatsheet"
         ]
     },
     { 

@@ -1,12 +1,10 @@
-import React, { useState } from "react";
-// import ErrorCard from "../../errorCard";
-// import GoodCard from "../../goodCard";
-
+import { useState } from "react";
 export default function Feedback() {
   const [name, setName] = useState("");
   const [token, setToken] = useState(localStorage.getItem("userToken") || "");
   const [userName, setUserName] = useState(localStorage.getItem("userName") || "");
   const [comment, setComment] = useState("");
+  const [password, setPassword] = useState("");
 
   const generateToken = async () => {
     const generatedToken = crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).substring(2);
@@ -16,17 +14,17 @@ export default function Feedback() {
     localStorage.setItem("NOTE", "PLEASE DO NOT REMOVE THE DATA FROM LOCAL STORAGE");
     setUserName(name);
     try {
-      const response = await fetch("https://codersresources-backend.onrender.com/users/createUser", {
+      const response = await fetch("https://codersresources-backend.onrender.com/createUser", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({name: name, token: generatedToken }),
+        body: JSON.stringify({name: name, token: generatedToken,password: password }),
       });
       if (!response.ok) {
         throw new Error("Failed to create user");
       }
-      // alert("Token generated successfully!");
+      console.log("Token generated successfully!");
       localStorage.setItem("userToken", generatedToken);
     } catch (error) {
       console.error("Error generating token:", error);
@@ -41,12 +39,12 @@ export default function Feedback() {
     }
 
     try {
-      const response = await fetch('https://codersresources-backend.onrender.com/feedbacks/createFeedbacks', {
+      const response = await fetch('https://codersresources-backend.onrender.com/createFeedbacks', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ name: name || localStorage.getItem("userName"), feedback: comment, token: token }),
+        body: JSON.stringify({ name: name || localStorage.getItem("userName"), feedback: comment}),
       });
 
 
@@ -68,24 +66,33 @@ export default function Feedback() {
     
       {!token || !userName ? (
         <div>
-          <h2 style={style.title}>Get access token</h2>
+          <h2 style={style.title}>Generate Account or login</h2>
           <input
           style={style.textarea}
             type="text"
-            placeholder="Unique name or current username to login"
+            placeholder="Unique name or current username to login."
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
-          <button style={style.button} onClick={generateToken}>Generate Token</button>
+           <div>
+          <input
+          style={style.textarea}
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+          <button style={style.button} onClick={generateToken}>proceed</button>
         </div>
       ) : (
         <div>
-          <h2>Send Comments and resources that u want to add</h2>
+          <h2>Send Comments or resources that u want to add</h2>
           <p>Hello <strong>{userName}</strong> 👋</p>
           <textarea style={style.textarea}
             rows="4"
             cols="50"
-            placeholder="Please add ur comment"
+            placeholder="Please add your comment"
             value={comment}
             onChange={(e) => setComment(e.target.value)}
           />
@@ -134,7 +141,7 @@ const style = {
     boxShadow: "0px 0px 10px rgba(0, 123, 255, 0.5)", // Brillo azul alrededor del input
   },
   textarea: {
-    width: "100%",
+    width: "50%",
     maxWidth: "500px",
     padding: "15px",
     borderRadius: "10px",
@@ -145,6 +152,8 @@ const style = {
     outline: "none",
     resize: "none",
     marginBottom: "15px",
+    left: '20%',
+    position: 'relative',
     transition: "background-color 0.3s ease", // Efecto suave al interactuar
     boxShadow: "0px 0px 10px rgba(0, 123, 255, 0.5)", // Brillo azul alrededor del textarea
   },
