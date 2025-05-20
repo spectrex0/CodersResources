@@ -1,4 +1,10 @@
 {
+    "LearnPython": {
+        "name": "Learn It Yourself",
+        "description": "For peoples that want to learn python",
+        "url": "https://learnityourself.dev/",
+        "tags": ["snippets", "code", "tool"]
+    },
     "pngImages": {
         "name": "ClearPNG",
         "description": "A collection of PNG images witch transparent backgrounds.",
@@ -16,6 +22,12 @@
         "description": "Everything that u need to know about mongoose",
         "url": "https://mongoosejs.com/",
         "tags": ["dataBase","tools"]
+    },
+    "quickDiscordBotGuide": {
+        "name": "Quick Discord Bots Guide",
+        "description": "GitHub repo builded by me for help",
+        "url": "https://github.com/spectrex0/Discord_Bot_Template",
+        "tags": ["bots","tools"]
     },
     "svgl": {
         "name": "svgl",
