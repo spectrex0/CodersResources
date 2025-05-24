@@ -14,12 +14,12 @@ export default function Feedback() {
     localStorage.setItem("NOTE", "PLEASE DO NOT REMOVE THE DATA FROM LOCAL STORAGE");
     setUserName(name);
     try {
-      const response = await fetch("https://codersresources-backend.onrender.com/users/createUser", {
+      const response = await fetch("https://codersresources-backend.onrender.com/user/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({name: name, token: generatedToken,password: password }),
+        body: JSON.stringify({userName: name, userPassword: password }),
       });
       if (!response.ok) {
         throw new Error("Failed to create user");
@@ -39,7 +39,7 @@ export default function Feedback() {
     }
 
     try {
-      const response = await fetch('https://codersresources-backend.onrender.com/feedbacks/createFeedbacks', {
+      const response = await fetch('https://codersresources-backend.onrender.com/feedbacks/send', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
