@@ -39,12 +39,12 @@ export default function Feedback() {
     }
 
     try {
-      const response = await fetch('https://codersresources-backend.onrender.com/feedbacks/send', {
+      const response = await fetch('https://codersresources-backend.onrender.com/feedback/send', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ name: name || localStorage.getItem("userName"), feedback: comment}),
+        body: JSON.stringify({ FeedbackAuthor: name || localStorage.getItem("userName"), FeedbackContent: comment}),
       });
 
 
