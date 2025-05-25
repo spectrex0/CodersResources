@@ -11,7 +11,7 @@ const styles = {
         textAlign: 'center',
         borderColor:'rgba(0, 132, 255, 0.2)',
         transition: 'transform 0.3s, box-shadow 0.3s',
-        // flex: '1 1 calc(33.333% - 20px)', // Default for larger screens
+        flex: '1 1 calc(33.333% - 20px)', // Default for larger screens
         boxSizing: 'border-box',
     },
     cardHover: {
