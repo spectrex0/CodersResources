@@ -1,20 +1,20 @@
 import { useState } from "react";
+import Cookies from 'universal-cookie'
+const cookie = new Cookies()
 export default function Feedback() {
   const [name, setName] = useState("");
-  const [token, setToken] = useState(localStorage.getItem("userToken") || "");
-  const [userName, setUserName] = useState(localStorage.getItem("userName") || "");
+  const [token, setToken] = useState(cookie.get('userToken') || "");
+  const [userName, setUserName] = useState(cookie.get('userName') || "");
   const [comment, setComment] = useState("");
   const [password, setPassword] = useState("");
 
   const generateToken = async () => {
     const generatedToken = crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).substring(2);
     setToken(generatedToken);
-    localStorage.setItem("userToken", generatedToken);
-    localStorage.setItem("userName", name);
-    localStorage.setItem("NOTE", "PLEASE DO NOT REMOVE THE DATA FROM LOCAL STORAGE");
     setUserName(name);
     try {
-      const response = await fetch("https://codersresources-backend.onrender.com/user/register", {
+      // https://codersresources-backend.onrender.com/user/register
+      const response = await fetch("http://localhost:4200/user/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -24,8 +24,9 @@ export default function Feedback() {
       if (!response.ok) {
         throw new Error("Failed to create user");
       }
-      console.log("Token generated successfully!");
-      localStorage.setItem("userToken", generatedToken);
+      console.log("User account generated successfully!");
+      cookie.set('userToken', generatedToken, {path: "/", SameSite:"lax", httpOnly: false, secure:false,maxAge:1130000})
+      cookie.set('userName',name,{path: "/",maxAge:1130000})
     } catch (error) {
       console.error("Error generating token:", error);
     }
@@ -44,7 +45,7 @@ export default function Feedback() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ FeedbackAuthor: name || localStorage.getItem("userName"), FeedbackContent: comment}),
+        body: JSON.stringify({ FeedbackAuthor: name || cookie.get('userName'), FeedbackContent: comment}),
       });
 
 
@@ -55,8 +56,8 @@ export default function Feedback() {
       } else {
       }
     } catch (error) {
-      console.error('Error submitting comment:', error);
-      alert('Failed to submit comment. Please try again later.');
+      console.error('Error submitting feedback:', error);
+      alert('Failed to submit feedback. Please try again later.');
     }
   };
 
