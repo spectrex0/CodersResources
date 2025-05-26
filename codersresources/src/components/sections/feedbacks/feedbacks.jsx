@@ -13,8 +13,7 @@ export default function Feedback() {
     setToken(generatedToken);
     setUserName(name);
     try {
-      // https://codersresources-backend.onrender.com/user/register
-      const response = await fetch("http://localhost:4200/user/register", {
+      const response = await fetch("https://codersresources-backend.onrender.com/user/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
