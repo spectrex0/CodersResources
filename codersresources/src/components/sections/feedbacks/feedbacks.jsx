@@ -17,8 +17,8 @@ export default function Feedback() {
       return;
     }
     const generatedToken = crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).substring(2);
-    try {// https://codersresources-backend.onrender.com/user/register
-      const response = await fetch("http://localhost:4200/user/register", {
+    try { 
+      const response = await fetch("https://codersresources-backend.onrender.com/user/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ userName: name, userPassword: password }),
