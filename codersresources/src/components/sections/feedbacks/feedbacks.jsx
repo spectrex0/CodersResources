@@ -1,106 +1,129 @@
 import { useState } from "react";
 import Cookies from 'universal-cookie'
 const cookie = new Cookies()
+
 export default function Feedback() {
   const [name, setName] = useState("");
   const [token, setToken] = useState(cookie.get('userToken') || "");
   const [userName, setUserName] = useState(cookie.get('userName') || "");
   const [comment, setComment] = useState("");
   const [password, setPassword] = useState("");
+  const [showLogin, setShowLogin] = useState(true);
 
-  const generateToken = async () => {
+  // Register
+  const handleRegister = async () => {
+    if (!name.trim() || !password.trim()) {
+      alert("Please fill in all fields.");
+      return;
+    }
     const generatedToken = crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).substring(2);
-    setToken(generatedToken);
-    setUserName(name);
-    try {
-      const response = await fetch("https://codersresources-backend.onrender.com/user/register", {
+    try {// https://codersresources-backend.onrender.com/user/register
+      const response = await fetch("http://localhost:4200/user/register", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({userName: name, userPassword: password }),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ userName: name, userPassword: password }),
       });
-      if (!response.ok) {
-        throw new Error("Failed to create user");
-      }
-      console.log("User account generated successfully!");
-      cookie.set('userToken', generatedToken, {path: "/", SameSite:"lax", httpOnly: false, secure:false,maxAge:1130000})
-      cookie.set('userName',name,{path: "/",maxAge:1130000})
+      if (!response.ok) throw new Error("Could not register user");
+      setToken(generatedToken);
+      setUserName(name);
+      cookie.set('userToken', generatedToken, { path: "/", SameSite: "lax", httpOnly: false, secure: false, maxAge: 1130000 });
+      cookie.set('userName', name, { path: "/", maxAge: 1130000 });
+      alert("Account created successfully!");
     } catch (error) {
-      console.error("Error generating token:", error);
+      alert("Registration error: " + error.message);
     }
   };
 
-
-   const handleCommentSubmit = async () => {
-    if ( !comment.trim()) {
-    alert("Please type something...");
-    return;   
+  // Login
+  const handleLogin = async () => {
+    if (!name.trim() || !password.trim()) {
+      alert("Please fill in all fields.");
+      return;
     }
+    try {
+      const response = await fetch("https://codersresources-backend.onrender.com/user/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ userName: name, userPassword: password }),
+      });
+      if (!response.ok) throw new Error("Incorrect username or password");
+      const data = await response.json();
+      setToken(data.token || "token");
+      setUserName(name);
+      cookie.set('userToken', data.token || "token", { path: "/", SameSite: "lax", httpOnly: false, secure: false, maxAge: 1130000 });
+      cookie.set('userName', name, { path: "/", maxAge: 1130000 });
+      alert("Login successful!");
+    } catch (error) {
+      alert("Login error: " + error.message);
+    }
+  };
 
+  const handleCommentSubmit = async () => {
+    if (!comment.trim()) {
+      alert("Please type something...");
+      return;
+    }
     try {
       const response = await fetch('https://codersresources-backend.onrender.com/feedback/send', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ FeedbackAuthor: name || cookie.get('userName'), FeedbackContent: comment}),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ FeedbackAuthor: userName, FeedbackContent: comment }),
       });
-
-
       if (response.ok) {
         setComment("");
-    
-        alert("Thx for ur comment!");
-      } else {
+        alert("Thanks for your comment!");
       }
     } catch (error) {
-      console.error('Error submitting feedback:', error);
       alert('Failed to submit feedback. Please try again later.');
     }
   };
 
-
   return (
     <div style={style.container}>
-    
       {!token || !userName ? (
         <div>
-          <h2 style={style.title}>Generate Account or login</h2>
+          <h2 style={style.title}>{showLogin ? "Login" : "Register"}</h2>
           <input
-          style={style.textarea}
+            style={style.textarea}
             type="text"
-            placeholder="Unique name or current username to login."
+            placeholder="Username"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
-           <div>
           <input
-          style={style.textarea}
+            style={style.textarea}
             type="password"
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-        </div>
-          <button style={style.button} onClick={generateToken}>proceed</button>
+          {showLogin ? (
+            <>
+              <button style={style.button} onClick={handleLogin}>Login</button>
+              <button style={style.changelogs} onClick={() => setShowLogin(false)}>Don't have an account? Register</button>
+            </>
+          ) : (
+            <>
+              <button style={style.button} onClick={handleRegister}>Register</button>
+              <button style={style.changelogs} onClick={() => setShowLogin(true)}>Already have an account? Login</button>
+            </>
+          )}
         </div>
       ) : (
         <div>
-          <h2 style={style.h2}>Send Comments or resources that u want to add</h2>
+          <h2 style={style.h2}>Send comments or resources you want to add</h2>
           <p>Hello <strong>{userName}</strong> 👋</p>
-          <textarea style={style.textarea}
+          <textarea
+            style={style.textarea}
             rows="4"
             cols="50"
             placeholder="Please add your comment"
             value={comment}
             onChange={(e) => setComment(e.target.value)}
           />
-
           <br />
-          
           <button style={style.button} onClick={handleCommentSubmit}>Send</button>
-          <button style={style.changelogs} onClick={openLogs} >View changes</button>
+          <button style={style.changelogs} onClick={openLogs}>View changes</button>
         </div>
       )}
     </div>
@@ -108,8 +131,9 @@ export default function Feedback() {
 }
 
 function openLogs() {
-  window.open('https://pastebin.com/n4L3yyfY' , '_blank');
+  window.open('https://pastebin.com/n4L3yyfY', '_blank');
 }
+
 const style = {
   container: {
     display: "flex",
@@ -207,4 +231,3 @@ if (typeof window !== "undefined" && window.innerWidth <= 600) {
   style.button.width = "100%";
   style.changelogs.width = "100%";
 }
-
