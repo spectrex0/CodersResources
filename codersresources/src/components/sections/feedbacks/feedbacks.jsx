@@ -87,7 +87,7 @@ export default function Feedback() {
         </div>
       ) : (
         <div>
-          <h2>Send Comments or resources that u want to add</h2>
+          <h2 style={style.h2}>Send Comments or resources that u want to add</h2>
           <p>Hello <strong>{userName}</strong> 👋</p>
           <textarea style={style.textarea}
             rows="4"
@@ -116,79 +116,95 @@ const style = {
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    height: "100vh",
+    minHeight: "100vh",
     backgroundColor: "#0D1117",
+    padding: "20px",
+    boxSizing: "border-box",
+  },
+  h2: {
+    fontSize: "2rem",
+    marginBottom: "20px",
+    color: "#58A6FF",
+    textShadow: "0px 0px 10px #58A6FF",
+    fontFamily: "'Poppins', sans-serif",
+    textAlign: "center",
   },
   title: {
-    fontSize: "3rem",
+    fontSize: "2.5rem",
     marginBottom: "20px",
-    color: '#58A6FF',
-    textShadow: '0px 0px 10px #58A6FF',
+    color: "#58A6FF",
+    textShadow: "0px 0px 10px #58A6FF",
     fontFamily: "'Poppins', sans-serif",
+    textAlign: "center",
   },
   input: {
     width: "100%",
-    maxWidth: "500px",
+    maxWidth: "400px",
     padding: "15px",
     borderRadius: "10px",
     border: "none",
-    backgroundColor: "rgba(255, 255, 255, 0.1)", // Fondo semi-transparente
+    backgroundColor: "rgba(255, 255, 255, 0.1)",
     color: "#fff",
     fontSize: "1rem",
     outline: "none",
     marginBottom: "15px",
-    transition: "background-color 0.3s ease", // Efecto suave al interactuar
-    boxShadow: "0px 0px 10px rgba(0, 123, 255, 0.5)", // Brillo azul alrededor del input
+    transition: "background-color 0.3s ease",
+    boxShadow: "0px 0px 10px rgba(0, 123, 255, 0.5)",
+    display: "block",
+    marginLeft: "auto",
+    marginRight: "auto",
   },
   textarea: {
-    width: "50%",
-    maxWidth: "500px",
+    width: "100%",
+    maxWidth: "400px",
     padding: "15px",
     borderRadius: "10px",
     border: "none",
-    backgroundColor: "rgba(255, 255, 255, 0.1)", // Fondo semi-transparente
+    backgroundColor: "rgba(255, 255, 255, 0.1)",
     color: "#fff",
     fontSize: "1rem",
     outline: "none",
     resize: "none",
     marginBottom: "15px",
-    left: '20%',
-    position: 'relative',
-    transition: "background-color 0.3s ease", // Efecto suave al interactuar
-    boxShadow: "0px 0px 10px rgba(0, 123, 255, 0.5)", // Brillo azul alrededor del textarea
+    transition: "background-color 0.3s ease",
+    boxShadow: "0px 0px 10px rgba(0, 123, 255, 0.5)",
+    display: "block",
+    marginLeft: "auto",
+    marginRight: "auto",
   },
   button: {
     padding: "15px 30px",
     borderRadius: "10px",
     border: "none",
-    left: "45%",
-    position: "absolute",
-    backgroundColor: "#007bff", // Azul brillante
+    backgroundColor: "#007bff",
     color: "#fff",
     fontSize: "1rem",
     cursor: "pointer",
-    transition: "transform 0.3s ease, box-shadow 0.3s ease", // Animación al hacer clic
-    boxShadow: "0px 0px 10px rgba(0, 123, 255, 0.5)", // Brillo azul alrededor del botón
-    "&:hover": {
-      transform: "scale(1.05)", // Aumenta ligeramente el tamaño al pasar el mouse
-    },
+    transition: "transform 0.3s ease, box-shadow 0.3s ease",
+    boxShadow: "0px 0px 10px rgba(0, 123, 255, 0.5)",
+    margin: "10px auto",
+    display: "block",
   },
   changelogs: {
     padding: "10px 20px",
     borderRadius: "10px",
     border: "none",
-    backgroundColor: "#333", // Gris oscuro
+    backgroundColor: "#333",
     color: "#fff",
     fontSize: "0.9rem",
     cursor: "pointer",
-    position: "absolute",
-    bottom: "20px",
-    left: "48%",
-    transform: "translateX(-50%)", // Centra horizontalmente
+    margin: "10px auto",
+    display: "block",
     textDecoration: "none",
-    transition: "background-color 0.3s ease", // Efecto suave al interactuar
-    "&:hover": {
-      backgroundColor: "#555", // Cambia el color al pasar el mouse
-    },
+    transition: "background-color 0.3s ease",
   },
 };
+
+if (typeof window !== "undefined" && window.innerWidth <= 600) {
+  style.container.padding = "10px";
+  style.textarea.maxWidth = "95vw";
+  style.input.maxWidth = "95vw";
+  style.button.width = "100%";
+  style.changelogs.width = "100%";
+}
+

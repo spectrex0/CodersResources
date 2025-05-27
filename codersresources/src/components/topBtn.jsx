@@ -1,6 +1,7 @@
 import resourcesData from '../components/sections/resources/resourcesLinks.json';
 import downloadLogo from '../components/assets/icons/download.svg';
 
+
 const DownloadBtn = () => {
         const allLinks = Object.values(resourcesData)
         .map(item => item.url)

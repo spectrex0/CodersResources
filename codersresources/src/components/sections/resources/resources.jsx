@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import resourcesData from './resourcesLinks.json';
-import DownloadBtn from '../../topBtn';
 const styles = {
     resourcesContainer: {
         display: 'flex',
@@ -11,6 +10,9 @@ const styles = {
         justifyContent: 'center',
         padding: '20px',
         backgroundColor: '#0D1117',
+    },
+    dwnld : {
+        display: "flex"
     },
     card: {
         base: {
@@ -109,11 +111,14 @@ const styles = {
         padding: '10px',
         borderRadius: '8px',
         marginTop: '1%',
-        border: '1px solid #21262D',
+        border: '0px solid #21262D',
         fontSize: '1rem',
         fontFamily: 'Roboto, sans-serif',
         backgroundColor: 'rgba(0, 115, 255, 0.06)',
         color: '#C9D1D9',
+        position: "absolute",
+        top:"0",
+        outline: "none"
     },
 };
 
@@ -182,7 +187,6 @@ function Resources() {
                 style={styles.searchBar}
             />
             <div style={styles.resourcesContainer}>
-                <DownloadBtn />
                 {filteredResources.map((resource, index) => (
                     <ResourceCard
                         key={index}
@@ -196,6 +200,10 @@ function Resources() {
             </div>
         </div>
     );
+}
+
+if(window.innerWidth <= 600){
+    styles.searchBar.display = 'none'
 }
 
 export default Resources;

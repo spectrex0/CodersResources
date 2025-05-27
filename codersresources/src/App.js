@@ -37,7 +37,7 @@ function App() {
     ];
 
     return (
-      <nav style={styles.nav}>
+      <nav style={styles.nav} className="navB">
       
         <ul style={{ listStyleType: 'none', margin: 0, padding: 0, display: 'flex', gap: '15px' }}>
           {menuItems.map((item) => (
@@ -70,24 +70,34 @@ function App() {
 
 const styles = {
   nav: {
-        backgroundColor: 'rgba(0, 115, 255, 0.06)',
-        color: '#58A6FF',
-        textAlign: 'center',
-        padding: '5px 0',
-        position: 'absolute',
-        top: 0,
-        height: '40px',
-        alignItems: 'center',
-        display: 'flex',
-        justifyContent: 'space-around',
-        borderRadius: '8px',
-        width:'30%',
-        left: '35%',
-        marginTop:15
-    },
-  }
+    backgroundColor: 'rgba(0, 115, 255, 0.06)',
+    color: '#58A6FF',
+    textAlign: 'center',
+    padding: '5px 0',
+    position: 'relative',
+    top: 0,
+    height: '40px',
+    alignItems: 'center',
+    display: 'flex',
+    justifyContent: 'center',
+    borderRadius: '8px',
+    width: '40%',
+    left: '32%',
+    marginTop: 15,
+    minWidth: 0,
+    maxWidth: '100vw',
+    boxSizing: 'border-box',
+    flexWrap: 'wrap',
+  },
+};
 
-
+if (window.innerWidth <= 600) {
+  styles.nav.width = '95%';
+  styles.nav.left = '2.5%';
+  styles.nav.height = 'auto';
+  styles.nav.flexDirection = 'column';
+  styles.nav.padding = '10px 0';
+}
 
 
 
