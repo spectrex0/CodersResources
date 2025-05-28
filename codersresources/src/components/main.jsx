@@ -10,26 +10,26 @@ const styles = {
     container: {
         textAlign: 'center',
         padding: '0 0px',
-        backgroundColor: '#0D1117', // Dark background
-        height: '100vh', // Full viewport height
-        color: '#C9D1D9', // Light text
+        backgroundColor: '#0D1117',  
+        height: '100%',  
+        color: '#C9D1D9', 
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'center', // Center content vertically
+        justifyContent: 'center',  
         alignItems: 'center',
-        overflow: 'hidden', // Prevent scrolling
+        overflow: 'hidden', 
     },
     title: {
         fontSize: '3em',
         color: '#58A6FF',
         textShadow: '0px 0px 5px #58A6FF',
-        marginBottom: '20px',
+        marginBottom: '50px',
+        marginTop: '150px',
         fontFamily: "'Poppins', sans-serif",
         fontWeight: '600',
     },
     paragraph: {
         fontSize: '1.2em',
-        // color: '#8B949E', // Muted blue-gray
         color:'gray',
         marginBottom: '20px', // Reduced margin
         fontFamily: "'Roboto', sans-serif",
