@@ -46,11 +46,15 @@ export default function Feedback() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ userName: name, userPassword: password }),
       });
-      if (!response.ok) throw new Error("Incorrect username or password");
       const data = await response.json();
-      setToken(data.token || "token");
+      if (!data.successful) {
+        alert(data.message || "Incorrect username or password");
+        return;
+      }
+      const generatedToken = crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).substring(2);
+      setToken(generatedToken);
       setUserName(name);
-      cookie.set('userToken', data.token || "token", { path: "/", SameSite: "lax", httpOnly: false, secure: false, maxAge: 1130000 });
+      cookie.set('userToken', generatedToken, { path: "/", SameSite: "lax", httpOnly: false, secure: false, maxAge: 1130000 });
       cookie.set('userName', name, { path: "/", maxAge: 1130000 });
       alert("Login successful!");
     } catch (error) {
