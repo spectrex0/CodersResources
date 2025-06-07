@@ -32,8 +32,8 @@ function App() {
       { label: 'Home', section: 'homeScreen' },
       { label: 'Resources', section: 'Resources' },
       { label: 'Cheatsheets', section: 'cheatsheets' },
-      { label: 'Feedback', section: 'FeedbacksPage' },
-      // { label: 'Dashboard', section: 'dashboard' }
+      { label: 'Forum', section: 'FeedbacksPage' },
+      
     ];
 
     return (
