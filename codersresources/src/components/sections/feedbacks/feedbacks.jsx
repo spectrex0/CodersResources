@@ -57,7 +57,7 @@ export default function Feedback() {
       const generatedToken = crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).substring(2);
       setToken(generatedToken);
       setUserName(name);
-      cookie.set('userToken', generatedToken, { path: "/", SameSite: "lax", httpOnly: true, secure: true, maxAge: 1130000 });
+      cookie.set('userToken', generatedToken, { path: "/", SameSite: "lax", httpOnly: false, secure: true, maxAge: 1130000 });
       cookie.set('userName', name, { path: "/", maxAge: 1130000 });
       alert("Login successful!");
     } catch (error) {
@@ -126,16 +126,16 @@ export default function Feedback() {
             <button style={style.button} onClick={handleCommentSubmit}>Send</button>
           </div>
           <GetFeedbacks />
-          <button style={style.changelogs} onClick={openLogs}>View changes</button>
+          {/* <button style={style.changelogs} onClick={openLogs}>View changes</button> */}
         </div>
       )}
     </div>
   );
 }
 
-function openLogs() {
-  window.open('https://pastebin.com/n4L3yyfY',  '_blank');
-}
+// function openLogs() {
+//   window.open('https://pastebin.com/n4L3yyfY',  '_blank');
+// }
 
 // const styxle = {
 //   container: {
@@ -264,13 +264,16 @@ const style = {
     margin: "0 auto",
   },
   formContainer: {
-    backgroundColor: "#161B22",
+    // backgroundColor: "#161B22",
     padding: "25px",
     borderRadius: "12px",
-    boxShadow: "0 0 15px rgba(0, 123, 255, 0.4)",
+    // boxShadow: "0 0 15px rgba(0, 123, 255, 0.4)",
     width: "90%",
     maxWidth: "400px",
     textAlign: "center",
+    display:"flex",
+    flexDirection:"column",
+    boxSizing:"border-box"
   },
   title: {
     fontSize: "2rem",
@@ -349,20 +352,17 @@ const style = {
     transition: "background-color 0.3s ease",
   },
 };
-
-// Ajustes responsivos dinámicos (opcional - puedes usar CSS Media Queries también)
+ 
 if (typeof window !== "undefined") {
 const updateStyles = () => {
   const isMobile = window.innerWidth <= 768;
-
-  // Actualiza CommentInputI
+ 
   style.CommentInputI = {
     ...style.CommentInputI,
     width: isMobile ? "100%" : "520px",
     fontSize: isMobile ? "1rem" : "1rem"
   };
-
-  // Actualiza title
+ 
   style.title = {
     ...style.title,
     fontSize: isMobile ? "1.5rem" : "2rem"
