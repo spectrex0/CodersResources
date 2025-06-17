@@ -345,7 +345,6 @@ const style = {
     transition: "background-color 0.3s ease",
   },
 };
-<<<<<<< HEAD
 if (typeof window !== "undefined") {
   if (window.innerWidth <= 600) {
     style.input.fontSize = "1rem";
@@ -353,10 +352,7 @@ if (typeof window !== "undefined") {
   }
 }
 
-// Ajustes responsivos dinámicos (opcional - puedes usar CSS Media Queries también)
-=======
- 
->>>>>>> 4ab95b4a046d148e1c5787e3ea080cb5dde5914f
+
 if (typeof window !== "undefined") {
 const updateStyles = () => {
   const isMobile = window.innerWidth <= 768;
