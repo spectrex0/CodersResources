@@ -238,13 +238,6 @@ const stysle = {
   },
 };
 
-// Responsive adjustments
-if (typeof window !== "undefined") {
-  if (window.innerWidth <= 600) {
-    style.input.fontSize = "1rem";
-    style.title.fontSize = "1.5rem";
-  }
-}
 
 const style = {
   container: {
@@ -349,6 +342,12 @@ const style = {
     transition: "background-color 0.3s ease",
   },
 };
+if (typeof window !== "undefined") {
+  if (window.innerWidth <= 600) {
+    style.input.fontSize = "1rem";
+    style.title.fontSize = "1.5rem";
+  }
+}
 
 // Ajustes responsivos dinámicos (opcional - puedes usar CSS Media Queries también)
 if (typeof window !== "undefined") {
