@@ -106,9 +106,9 @@ setInterval(async () => {
   try {
     const res = await fetch('https://isolated-emili-spectredev-9a803c60.koyeb.app/api'); 
     const data = await res.json();
-    console.log('API response:', data);
+    data
   } catch (err) {
-    console.error('Error al llamar a la API:', err);
+    
   }
 }, 300000);
 
