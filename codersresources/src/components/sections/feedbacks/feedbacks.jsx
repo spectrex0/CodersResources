@@ -57,7 +57,7 @@ export default function Feedback() {
       const generatedToken = crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).substring(2);
       setToken(generatedToken);
       setUserName(name);
-      cookie.set('userToken', generatedToken, { path: "/", SameSite: "lax", httpOnly: true, secure: true, maxAge: 1130000 });
+      cookie.set('userToken', generatedToken, { path: "/", SameSite: "lax", httpOnly: false, secure: true, maxAge: 1130000 });
       cookie.set('userName', name, { path: "/", maxAge: 1130000 });
       alert("Login successful!");
     } catch (error) {
@@ -126,117 +126,117 @@ export default function Feedback() {
             <button style={style.button} onClick={handleCommentSubmit}>Send</button>
           </div>
           <GetFeedbacks />
-          <button style={style.changelogs} onClick={openLogs}>View changes</button>
+          {/* <button style={style.changelogs} onClick={openLogs}>View changes</button> */}
         </div>
       )}
     </div>
   );
 }
 
-function openLogs() {
-  window.open('https://pastebin.com/n4L3yyfY',  '_blank');
-}
+// function openLogs() {
+//   window.open('https://pastebin.com/n4L3yyfY',  '_blank');
+// }
 
-const stysle = {
-  container: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    minHeight: "100vh",
-    backgroundColor: "#0D1117",
-    padding: "20px",
-    boxSizing: "border-box",
-  },
-  formContainer: {
-    backgroundColor: "#161B22",
-    padding: "30px",
-    borderRadius: "15px",
-    boxShadow: "0 0 20px rgba(0, 123, 255, 0.5)",
-    width: "100%",
-    maxWidth: "400px",
-    textAlign: "center",
-  },
-  title: {
-    fontSize: "2rem",
-    marginBottom: "20px",
-    color: "#58A6FF",
-    textShadow: "0px 0px 10px #58A6FF",
-    fontFamily: "'Poppins', sans-serif",
-  },
-  input: {
-    width: "100%",
-    padding: "12px",
-    margin: "10px 0",
-    borderRadius: "8px",
-    border: "none",
-    backgroundColor: "rgba(255, 255, 255, 0.1)",
-    color: "#fff",
-    fontSize: "1rem",
-    outline: "none",
-    boxShadow: "0 0 5px rgba(0, 123, 255, 0.4)",
-  },
-  button: {
-    width: "100%",
-    padding: "12px",
-    marginTop: "15px",
-    borderRadius: "8px",
-    border: "none",
-    backgroundColor: "#007bff",
-    color: "#fff",
-    fontSize: "1rem",
-    cursor: "pointer",
-    boxShadow: "0 0 5px rgba(0, 123, 255, 0.6)",
-    transition: "background-color 0.3s ease",
-  },
-  toggleButton: {
-    width: "100%",
-    padding: "10px",
-    marginTop: "10px",
-    borderRadius: "8px",
-    border: "none",
-    backgroundColor: "#24292e",
-    color: "#c9d1d9",
-    fontSize: "0.9rem",
-    cursor: "pointer",
-    textDecoration: "underline",
-    background: "transparent",
-    color: "#888",
-  },
-  CommentInput: {
-    display: "flex",
-    gap: "1rem",
-    justifyContent: "center",
-    marginBottom: "2rem",
-  },
-  CommentInputI: {
-    outline: "none",
-    border: "0px solid transparent",
-    borderBottom: "2px solid #58A6FF",
-    backgroundColor: "transparent",
-    color: "#fff",
-    fontSize: "1rem",
-    padding: "10px",
-    width: "520px",
-    boxShadow: "none",
-  },
-  changelogs: {
-    padding: "10px 20px",
-    borderRadius: "10px",
-    border: "none",
-    backgroundColor: "#333",
-    color: "#fff",
-    fontSize: "0.9rem",
-    cursor: "pointer",
-    margin: "10px auto",
-    display: "block",
-    textDecoration: "none",
-    transition: "background-color 0.3s ease",
-    position: 'fixed',
-    left: "0",
-    bottom: "0",
-  },
-};
+// const styxle = {
+//   container: {
+//     display: "flex",
+//     flexDirection: "column",
+//     alignItems: "center",
+//     justifyContent: "center",
+//     minHeight: "100vh",
+//     backgroundColor: "#0D1117",
+//     padding: "20px",
+//     boxSizing: "border-box",
+//   },
+//   formContainer: {
+//     backgroundColor: "#161B22",
+//     padding: "30px",
+//     borderRadius: "15px",
+//     boxShadow: "0 0 20px rgba(0, 123, 255, 0.5)",
+//     width: "100%",
+//     maxWidth: "400px",
+//     textAlign: "center",
+//   },
+//   title: {
+//     fontSize: "2rem",
+//     marginBottom: "20px",
+//     color: "#58A6FF",
+//     textShadow: "0px 0px 10px #58A6FF",
+//     fontFamily: "'Poppins', sans-serif",
+//   },
+//   input: {
+//     width: "100%",
+//     padding: "12px",
+//     margin: "10px 0",
+//     borderRadius: "8px",
+//     border: "none",
+//     backgroundColor: "rgba(255, 255, 255, 0.1)",
+//     color: "#fff",
+//     fontSize: "1rem",
+//     outline: "none",
+//     boxShadow: "0 0 5px rgba(0, 123, 255, 0.4)",
+//   },
+//   button: {
+//     width: "100%",
+//     padding: "12px",
+//     marginTop: "15px",
+//     borderRadius: "8px",
+//     border: "none",
+//     backgroundColor: "#007bff",
+//     color: "#fff",
+//     fontSize: "1rem",
+//     cursor: "pointer",
+//     boxShadow: "0 0 5px rgba(0, 123, 255, 0.6)",
+//     transition: "background-color 0.3s ease",
+//   },
+//   toggleButton: {
+//     width: "100%",
+//     padding: "10px",
+//     marginTop: "10px",
+//     borderRadius: "8px",
+//     border: "none",
+//     backgroundColor: "#24292e",
+//     color: "#c9d1d9",
+//     fontSize: "0.9rem",
+//     cursor: "pointer",
+//     textDecoration: "underline",
+//     background: "transparent",
+//     color: "#888",
+//   },
+//   CommentInput: {
+//     display: "flex",
+//     gap: "1rem",
+//     justifyContent: "center",
+//     marginBottom: "2rem",
+//   },
+//   CommentInputI: {
+//     outline: "none",
+//     border: "0px solid transparent",
+//     borderBottom: "2px solid #58A6FF",
+//     backgroundColor: "transparent",
+//     color: "#fff",
+//     fontSize: "1rem",
+//     padding: "10px",
+//     width: "520px",
+//     boxShadow: "none",
+//   },
+//   changelogs: {
+//     padding: "10px 20px",
+//     borderRadius: "10px",
+//     border: "none",
+//     backgroundColor: "#333",
+//     color: "#fff",
+//     fontSize: "0.9rem",
+//     cursor: "pointer",
+//     margin: "10px auto",
+//     display: "block",
+//     textDecoration: "none",
+//     transition: "background-color 0.3s ease",
+//     position: 'fixed',
+//     left: "0",
+//     bottom: "0",
+//   },
+// };
 
 
 const style = {
@@ -257,13 +257,16 @@ const style = {
     margin: "0 auto",
   },
   formContainer: {
-    backgroundColor: "#161B22",
+    // backgroundColor: "#161B22",
     padding: "25px",
     borderRadius: "12px",
-    boxShadow: "0 0 15px rgba(0, 123, 255, 0.4)",
+    // boxShadow: "0 0 15px rgba(0, 123, 255, 0.4)",
     width: "90%",
     maxWidth: "400px",
     textAlign: "center",
+    display:"flex",
+    flexDirection:"column",
+    boxSizing:"border-box"
   },
   title: {
     fontSize: "2rem",
@@ -342,6 +345,7 @@ const style = {
     transition: "background-color 0.3s ease",
   },
 };
+<<<<<<< HEAD
 if (typeof window !== "undefined") {
   if (window.innerWidth <= 600) {
     style.input.fontSize = "1rem";
@@ -350,18 +354,19 @@ if (typeof window !== "undefined") {
 }
 
 // Ajustes responsivos dinámicos (opcional - puedes usar CSS Media Queries también)
+=======
+ 
+>>>>>>> 4ab95b4a046d148e1c5787e3ea080cb5dde5914f
 if (typeof window !== "undefined") {
 const updateStyles = () => {
   const isMobile = window.innerWidth <= 768;
-
-  // Actualiza CommentInputI
+ 
   style.CommentInputI = {
     ...style.CommentInputI,
     width: isMobile ? "100%" : "520px",
     fontSize: isMobile ? "1rem" : "1rem"
   };
-
-  // Actualiza title
+ 
   style.title = {
     ...style.title,
     fontSize: isMobile ? "1.5rem" : "2rem"
