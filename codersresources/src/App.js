@@ -99,12 +99,10 @@ if (window.innerWidth <= 600) {
   styles.nav.padding = '10px 0';
 }
 
-// ahora voy a tratar de llamar a una api que 
-// tiene mi bot de discord hosteada para ver si el bot se mantiene activo
 
 setInterval(async () => {
   try {
-    const res = await fetch('https://isolated-emili-spectredev-9a803c60.koyeb.app/api'); 
+    const res = await fetch('https://isolated-emili-spectredev-9a803c60.koyeb.app/api/api'); 
     const data = await res.json();
     data
   } catch (err) {
