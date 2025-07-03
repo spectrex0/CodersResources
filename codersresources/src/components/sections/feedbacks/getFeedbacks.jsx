@@ -32,13 +32,13 @@ function getUserId() {
 
 function getUserActions() {
   try {
-    return JSON.parse(localStorage.getItem("cr_actions") || "{}");
+    return JSON.parse(localStorage.getItem("cr_feedback_actions") || "{}");
   } catch {
     return {};
   }
 }
 function setUserActions(actions) {
-  localStorage.setItem("cr__actions", JSON.stringify(actions));
+  localStorage.setItem("cr_feedback_actions", JSON.stringify(actions));
 }
 
 const handleLike = async (idx) => {
