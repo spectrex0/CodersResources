@@ -32,13 +32,13 @@ function getUserId() {
 
 function getUserActions() {
   try {
-    return JSON.parse(localStorage.getItem("cr_feedback_actions") || "{}");
+    return JSON.parse(localStorage.getItem("cr_actions") || "{}");
   } catch {
     return {};
   }
 }
 function setUserActions(actions) {
-  localStorage.setItem("cr_feedback_actions", JSON.stringify(actions));
+  localStorage.setItem("cr__actions", JSON.stringify(actions));
 }
 
 const handleLike = async (idx) => {
@@ -57,12 +57,12 @@ const handleLike = async (idx) => {
   setUserActions(actions);
 
   try {
-    const res = await fetch("http://localhost:4200/feedback/like", {
+    const res = await fetch("https://codersresources-backend.onrender.com/feedback/like", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ id: feedbackId, userId })
     });
-    if (!res.ok) throw new Error("Failed to update like on server");
+    if (!res.ok) throw new Error("Failed to send the like");
   } catch (err) {
     console.error("Error liking feedback:", err);
   }
@@ -75,27 +75,23 @@ const handleReport = async (idx) => {
   const userId = getUserId();
   const actions = getUserActions();
 
-  // Si ya reportó, no permitir
   if (actions[feedbackId]?.reported) return;
 
-  // Optimistic update
   const updatedFeedbacks = [...feedbacks];
   updatedFeedbacks[idx].Reports += 1;
   setFeedbacks(updatedFeedbacks);
 
-  // Guardar acción localmente
   actions[feedbackId] = { ...(actions[feedbackId] || {}), reported: true };
   setUserActions(actions);
 
   try {
-    const res = await fetch("http://localhost:4200/feedback/report", {
+    const res = await fetch("https://codersresources-backend.onrender.com/feedback/report", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ _id: feedbackId, userId })
     });
     if (!res.ok) throw new Error("Failed to report feedback");
   } catch (err) {
-    // Opcional: revertir el optimistic update si falla
   }
 
   setMenuIdx(null);
@@ -155,50 +151,7 @@ const handleReport = async (idx) => {
               onClick={() => setMenuIdx(menuIdx === idx ? null : idx)}
             >
               {(fb.FeedbackAuthor || "U").charAt(0).toUpperCase()}
-              {/* Menú */}
-              {menuIdx === idx && (
-                <div style={{
-                  position: "absolute",
-                  top: 45,
-                  left: 0,
-                  background: "#23283a",
-                  border: "1px solid #0073ff",
-                  borderRadius: "0.5rem",
-                  boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
-                  zIndex: 10,
-                  minWidth: 90,
-                  width: "100px"
-                }}>
-                  <button
-                    style={{
-                      background: "none",
-                      border: "none",
-                      color: "#fff",
-                      padding: "0.5rem 1rem",
-                      width: "100%",
-                      textAlign: "left",
-                      cursor: "pointer"
-                    }}
-                    onClick={() => handleLike(idx)}
-                  >
-                    👍 Like
-                  </button>
-                  <button
-                    style={{
-                      background: "none",
-                      border: "none",
-                      color: "#ff4d4f",
-                      padding: "0.5rem 1rem",
-                      width: "100%",
-                      textAlign: "left",
-                      cursor: "pointer"
-                    }}
-                    onClick={() => handleReport(idx)}
-                  >
-                  👎 Dislike
-                  </button>
-                </div>
-              )}
+              
             </div>
             <div style={{ flex: 1 }}>
               <div style={{
@@ -248,8 +201,9 @@ const handleReport = async (idx) => {
                   display: "flex",
                   alignItems: "center",
                   gap: "0.3rem", 
-                }}>
+                }} onClick={() => handleLike(idx)}>
                   👍 {fb.Likes ?? 0} Likes
+                  
                 </div>
                 <div style={{
                   background: "#23283a",
@@ -260,7 +214,7 @@ const handleReport = async (idx) => {
                   display: "flex", 
                   alignItems: "center",
                   gap: "0.3rem"
-                }}>
+                }}  onClick={() => handleReport(idx)}>
                   👎 {fb.Reports ?? 0} Dislike
                 </div>
               </div>

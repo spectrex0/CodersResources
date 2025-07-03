@@ -17,6 +17,18 @@
         "url": "https://snippify-beta.vercel.app/",
         "tags": ["snippets", "code", "tool"]
     },
+    "iamsajid": {
+        "name": "Sajid's Blog",
+        "description": "A personal blog with articles on web development and programming.",
+        "url": "https://www.iamsajid.com",
+        "tags": ["blog", "web development", "programming"]
+    },
+    "colorHunt": {
+        "name": "Color Hunt",
+        "description": "A free and open platform for color inspiration with trendy color palettes.",
+        "url": "https://colorhunt.co",
+        "tags": ["colors", "design", "palette"]
+    },
     "mongooseDOCS": {
         "name": "MongooseJS",
         "description": "Everything that u need to know about mongoose",
@@ -25,7 +37,7 @@
     },
     "quickDiscordBotGuide": {
         "name": "Quick Discord Bots Guide",
-        "description": "GitHub repo builded by me for help",
+        "description": "GitHub repo builded by me for help (basic ofc)",
         "url": "https://github.com/spectrex0/Discord_Bot_Template",
         "tags": ["bots","tools"]
     },
