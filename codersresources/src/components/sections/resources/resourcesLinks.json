@@ -136,5 +136,35 @@
         "description": "Convert JSON to types.",
         "url": "https://app.quicktype.io/",
         "tags": ["json", "conversion"]
-    }
+    },
+    "codeToImage": {
+    "name": "Code to Image",
+    "description": "Turn your code into beautiful images for sharing or presentations.",
+    "url": "https://ray.so",
+    "tags": ["code", "image"]
+  },
+  "reactBits": {
+    "name": "React Bits",
+    "description": "A collection of React patterns.",
+    "url": "https://reactbits.dev",
+    "tags": ["react", "patterns"]
+  },
+  "overAPI": {
+    "name": "OverAPI",
+    "description": "Quick reference cheat sheets for many programming languages and frameworks.",
+    "url": "https://overapi.com",
+    "tags": ["cheatsheet", "programming"]
+  },
+  "tooolsDesign": {
+    "name": "Toools Design",
+    "description": "Curated collection of free tools for designers and developers.",
+    "url": "https://www.toools.design",
+    "tags": ["design", "tools"]
+  },
+  "gitDiagram": {
+    "name": "GitDiagram",
+    "description": "Generate Git branch and merge diagrams to visualize repository workflows.",
+    "url": "https://gitdiagram.com",
+    "tags": ["visualization", "workflow"]
+  }
 }
